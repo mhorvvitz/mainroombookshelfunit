@@ -99,8 +99,8 @@ Joint method: cam_and_dowel
 **cam_and_dowel** (edge) — connecting to Counter_10:
 
   - **bolt_hole**: Ø8mm × 24mm deep, at 50mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm. [confidence: high]
-  - **bolt_hole**: Ø8mm × 24mm deep, at 398.0mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm. [confidence: high]
-  - **bolt_hole**: Ø8mm × 24mm deep, at 746mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm. [confidence: high]
+  - **bolt_hole**: Ø8mm × 24mm deep, at 396.5mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm. [confidence: high]
+  - **bolt_hole**: Ø8mm × 24mm deep, at 743mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm. [confidence: high]
 
 ### BaseTop_9
 
@@ -117,8 +117,8 @@ Joint method: cam_and_dowel
 **cam_and_dowel** (edge) — connecting to Counter_11:
 
   - **bolt_hole**: Ø8mm × 24mm deep, at 50mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm. [confidence: high]
-  - **bolt_hole**: Ø8mm × 24mm deep, at 398.0mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm. [confidence: high]
-  - **bolt_hole**: Ø8mm × 24mm deep, at 746mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm. [confidence: high]
+  - **bolt_hole**: Ø8mm × 24mm deep, at 396.5mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm. [confidence: high]
+  - **bolt_hole**: Ø8mm × 24mm deep, at 743mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm. [confidence: high]
 
 ### BenchBottom_12
 
@@ -181,8 +181,8 @@ Joint method: cam_and_dowel
 **cam_and_dowel** (face) — connecting to BaseTop_7:
 
   - **cam_housing**: Ø15mm × 13.5mm deep, at 50mm along panel, 34mm from edge. Bit: Forstner Ø15mm. [confidence: high]
-  - **cam_housing**: Ø15mm × 13.5mm deep, at 398.0mm along panel, 34mm from edge. Bit: Forstner Ø15mm. [confidence: high]
-  - **cam_housing**: Ø15mm × 13.5mm deep, at 746mm along panel, 34mm from edge. Bit: Forstner Ø15mm. [confidence: high]
+  - **cam_housing**: Ø15mm × 13.5mm deep, at 396.5mm along panel, 34mm from edge. Bit: Forstner Ø15mm. [confidence: high]
+  - **cam_housing**: Ø15mm × 13.5mm deep, at 743mm along panel, 34mm from edge. Bit: Forstner Ø15mm. [confidence: high]
 
 **cam_and_dowel** (edge) — connecting to UpperSide_17:
 
@@ -204,8 +204,8 @@ Joint method: cam_and_dowel
 **cam_and_dowel** (face) — connecting to BaseTop_9:
 
   - **cam_housing**: Ø15mm × 13.5mm deep, at 50mm along panel, 34mm from edge. Bit: Forstner Ø15mm. [confidence: high]
-  - **cam_housing**: Ø15mm × 13.5mm deep, at 398.0mm along panel, 34mm from edge. Bit: Forstner Ø15mm. [confidence: high]
-  - **cam_housing**: Ø15mm × 13.5mm deep, at 746mm along panel, 34mm from edge. Bit: Forstner Ø15mm. [confidence: high]
+  - **cam_housing**: Ø15mm × 13.5mm deep, at 396.5mm along panel, 34mm from edge. Bit: Forstner Ø15mm. [confidence: high]
+  - **cam_housing**: Ø15mm × 13.5mm deep, at 743mm along panel, 34mm from edge. Bit: Forstner Ø15mm. [confidence: high]
 
 **cam_and_dowel** (edge) — connecting to UpperSide_18:
 
@@ -282,17 +282,17 @@ Joint method: cam_and_dowel
 **glued_dowel** (edge) — connecting to Shelf_20:
 
   - **dowel_edge**: Ø8mm × 19mm deep, at 40mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_edge**: Ø8mm × 19mm deep, at 254mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_edge**: Ø8mm × 19mm deep, at 252mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 **glued_dowel** (edge) — connecting to Shelf_21:
 
   - **dowel_edge**: Ø8mm × 19mm deep, at 40mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_edge**: Ø8mm × 19mm deep, at 254mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_edge**: Ø8mm × 19mm deep, at 252mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 **glued_dowel** (edge) — connecting to Shelf_22:
 
   - **dowel_edge**: Ø8mm × 19mm deep, at 40mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_edge**: Ø8mm × 19mm deep, at 254mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_edge**: Ø8mm × 19mm deep, at 252mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 ### Pier_1
 
@@ -331,12 +331,12 @@ Joint method: cam_and_dowel
 **cam_and_dowel** (edge) — connecting to ShelfWide_28:
 
   - **bolt_hole**: Ø8mm × 24mm deep, at 50mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm. [confidence: high]
-  - **bolt_hole**: Ø8mm × 24mm deep, at 244mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm. [confidence: high]
+  - **bolt_hole**: Ø8mm × 24mm deep, at 242mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm. [confidence: high]
 
 **cam_and_dowel** (edge) — connecting to ShelfWide_29:
 
   - **bolt_hole**: Ø8mm × 24mm deep, at 50mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm. [confidence: high]
-  - **bolt_hole**: Ø8mm × 24mm deep, at 244mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm. [confidence: high]
+  - **bolt_hole**: Ø8mm × 24mm deep, at 242mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm. [confidence: high]
 
 ### Pier_2
 
@@ -375,12 +375,12 @@ Joint method: cam_and_dowel
 **cam_and_dowel** (edge) — connecting to ShelfWide_28:
 
   - **bolt_hole**: Ø8mm × 24mm deep, at 50mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm. [confidence: high]
-  - **bolt_hole**: Ø8mm × 24mm deep, at 244mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm. [confidence: high]
+  - **bolt_hole**: Ø8mm × 24mm deep, at 242mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm. [confidence: high]
 
 **cam_and_dowel** (edge) — connecting to ShelfWide_29:
 
   - **bolt_hole**: Ø8mm × 24mm deep, at 50mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm. [confidence: high]
-  - **bolt_hole**: Ø8mm × 24mm deep, at 244mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm. [confidence: high]
+  - **bolt_hole**: Ø8mm × 24mm deep, at 242mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm. [confidence: high]
 
 ### Pier_3
 
@@ -414,29 +414,29 @@ Joint method: cam_and_dowel
 **glued_dowel** (edge) — connecting to Shelf_24:
 
   - **dowel_edge**: Ø8mm × 19mm deep, at 40mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_edge**: Ø8mm × 19mm deep, at 254mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_edge**: Ø8mm × 19mm deep, at 252mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 **glued_dowel** (edge) — connecting to Shelf_25:
 
   - **dowel_edge**: Ø8mm × 19mm deep, at 40mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_edge**: Ø8mm × 19mm deep, at 254mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_edge**: Ø8mm × 19mm deep, at 252mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 **glued_dowel** (edge) — connecting to Shelf_26:
 
   - **dowel_edge**: Ø8mm × 19mm deep, at 40mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_edge**: Ø8mm × 19mm deep, at 254mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_edge**: Ø8mm × 19mm deep, at 252mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 ### ShelfWide_28
 
 **cam_and_dowel** (face) — connecting to Pier_1:
 
   - **cam_housing**: Ø15mm × 13.5mm deep, at 50mm along panel, 34mm from edge. Bit: Forstner Ø15mm. [confidence: high]
-  - **cam_housing**: Ø15mm × 13.5mm deep, at 244mm along panel, 34mm from edge. Bit: Forstner Ø15mm. [confidence: high]
+  - **cam_housing**: Ø15mm × 13.5mm deep, at 242mm along panel, 34mm from edge. Bit: Forstner Ø15mm. [confidence: high]
 
 **cam_and_dowel** (face) — connecting to Pier_2:
 
   - **cam_housing**: Ø15mm × 13.5mm deep, at 50mm along panel, 34mm from edge. Bit: Forstner Ø15mm. [confidence: high]
-  - **cam_housing**: Ø15mm × 13.5mm deep, at 244mm along panel, 34mm from edge. Bit: Forstner Ø15mm. [confidence: high]
+  - **cam_housing**: Ø15mm × 13.5mm deep, at 242mm along panel, 34mm from edge. Bit: Forstner Ø15mm. [confidence: high]
 
 **cam_and_dowel** (edge) — connecting to ShelfWide_29:
 
@@ -450,12 +450,12 @@ Joint method: cam_and_dowel
 **cam_and_dowel** (face) — connecting to Pier_1:
 
   - **cam_housing**: Ø15mm × 13.5mm deep, at 50mm along panel, 34mm from edge. Bit: Forstner Ø15mm. [confidence: high]
-  - **cam_housing**: Ø15mm × 13.5mm deep, at 244mm along panel, 34mm from edge. Bit: Forstner Ø15mm. [confidence: high]
+  - **cam_housing**: Ø15mm × 13.5mm deep, at 242mm along panel, 34mm from edge. Bit: Forstner Ø15mm. [confidence: high]
 
 **cam_and_dowel** (face) — connecting to Pier_2:
 
   - **cam_housing**: Ø15mm × 13.5mm deep, at 50mm along panel, 34mm from edge. Bit: Forstner Ø15mm. [confidence: high]
-  - **cam_housing**: Ø15mm × 13.5mm deep, at 244mm along panel, 34mm from edge. Bit: Forstner Ø15mm. [confidence: high]
+  - **cam_housing**: Ø15mm × 13.5mm deep, at 242mm along panel, 34mm from edge. Bit: Forstner Ø15mm. [confidence: high]
 
 **cam_and_dowel** (face) — connecting to ShelfWide_28:
 
@@ -468,73 +468,73 @@ Joint method: cam_and_dowel
 
 **glued_dowel** (face) — connecting to Pier_0:
 
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 254mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 252mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 **glued_dowel** (face) — connecting to UpperSide_17:
 
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 254mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 252mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 ### Shelf_21
 
 **glued_dowel** (face) — connecting to Pier_0:
 
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 254mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 252mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 **glued_dowel** (face) — connecting to UpperSide_17:
 
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 254mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 252mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 ### Shelf_22
 
 **glued_dowel** (face) — connecting to Pier_0:
 
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 254mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 252mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 **glued_dowel** (face) — connecting to UpperSide_17:
 
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 254mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 252mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 ### Shelf_24
 
 **glued_dowel** (face) — connecting to Pier_3:
 
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 254mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 252mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 **glued_dowel** (face) — connecting to UpperSide_18:
 
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 254mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 252mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 ### Shelf_25
 
 **glued_dowel** (face) — connecting to Pier_3:
 
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 254mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 252mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 **glued_dowel** (face) — connecting to UpperSide_18:
 
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 254mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 252mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 ### Shelf_26
 
 **glued_dowel** (face) — connecting to Pier_3:
 
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 254mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 252mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 **glued_dowel** (face) — connecting to UpperSide_18:
 
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_face**: Ø8mm × 13.5mm deep, at 254mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 40mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_face**: Ø8mm × 14.2mm deep, at 252mm along panel, panel_centermm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 ### UpperSide_17
 
@@ -551,17 +551,17 @@ Joint method: cam_and_dowel
 **glued_dowel** (edge) — connecting to Shelf_20:
 
   - **dowel_edge**: Ø8mm × 19mm deep, at 40mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_edge**: Ø8mm × 19mm deep, at 254mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_edge**: Ø8mm × 19mm deep, at 252mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 **glued_dowel** (edge) — connecting to Shelf_21:
 
   - **dowel_edge**: Ø8mm × 19mm deep, at 40mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_edge**: Ø8mm × 19mm deep, at 254mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_edge**: Ø8mm × 19mm deep, at 252mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 **glued_dowel** (edge) — connecting to Shelf_22:
 
   - **dowel_edge**: Ø8mm × 19mm deep, at 40mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_edge**: Ø8mm × 19mm deep, at 254mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_edge**: Ø8mm × 19mm deep, at 252mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 ### UpperSide_18
 
@@ -578,17 +578,17 @@ Joint method: cam_and_dowel
 **glued_dowel** (edge) — connecting to Shelf_24:
 
   - **dowel_edge**: Ø8mm × 19mm deep, at 40mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_edge**: Ø8mm × 19mm deep, at 254mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_edge**: Ø8mm × 19mm deep, at 252mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 **glued_dowel** (edge) — connecting to Shelf_25:
 
   - **dowel_edge**: Ø8mm × 19mm deep, at 40mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_edge**: Ø8mm × 19mm deep, at 254mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_edge**: Ø8mm × 19mm deep, at 252mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 **glued_dowel** (edge) — connecting to Shelf_26:
 
   - **dowel_edge**: Ø8mm × 19mm deep, at 40mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
-  - **dowel_edge**: Ø8mm × 19mm deep, at 254mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
+  - **dowel_edge**: Ø8mm × 19mm deep, at 252mm along panel, panel_thickness / 2mm from edge. Bit: Brad-point Ø8mm with depth stop. [confidence: high]
 
 ### UpperTop_19
 

@@ -162,5 +162,120 @@ for i, (a, b, c_, d, e) in enumerate(MEAS):
 ns.cell(5 + len(MEAS) + 1, 1, "Yellow = fill these in on site.").font = B
 for col, w in zip("ABCDE", [50, 12, 12, 13, 56]): ns.column_dimensions[col].width = w
 
+
+# ------------------------------------------------------------------- COST
+cs = wb.create_sheet("Cost  עלות")
+cs["A1"] = "BUILD COST ESTIMATE / אומדן עלות"; cs["A1"].font = Font(name=F, size=14, bold=True)
+cs["A2"] = ("Two independent methods. Sheet prices are real quotes; hardware is my estimate and must be priced; "
+            "labour comes from a published Israeli benchmark. Every figure includes VAT.")
+cs["A2"].font = SM; cs.merge_cells("A2:G2")
+
+def hdr(row, cols, widths=None):
+    for c, h in enumerate(cols, 1):
+        cell = cs.cell(row, c, h); cell.font = H; cell.fill = HD; cell.border = BOX
+        cell.alignment = Alignment(horizontal="center", wrap_text=True)
+
+# --- A. sheet materials
+cs["A4"] = "A · SHEET MATERIALS — confidence HIGH (quoted price list, 2440×1220 sheets)"
+cs["A4"].font = B; cs.merge_cells("A4:G4")
+hdr(5, ["Material", "Parts m²", "Sheet m²", "Waste", "Sheets", "₪/sheet", "₪ total"])
+MATROWS = [("MDF 19mm — carcass, fronts, shelves", 15.994, 2.977, 1.30, 155),
+           ("MDF 12mm — visible backs + shiplap",    4.851, 2.977, 1.30, 119),
+           ("MDF 28mm — bench deck + furring",       0.857, 2.977, 1.30, 195),
+           ("Hardboard 4mm — hidden backs",          1.178, 2.977, 1.15,  85),
+           ("Birch ply 12mm — drawer boxes",         0.672, 2.977, 1.25, 178)]
+r = 6
+for nm, pm, sm, wf, pr in MATROWS:
+    cs.cell(r,1,nm).font=N; cs.cell(r,2,pm).number_format="0.000"; cs.cell(r,3,sm).number_format="0.000"
+    cs.cell(r,4,wf-1).number_format="0%"; cs.cell(r,5,f"=ROUNDUP(B{r}*(1+D{r})/C{r},0)")
+    cs.cell(r,6,pr).number_format='₪#,##0'; cs.cell(r,7,f"=E{r}*F{r}").number_format='₪#,##0'
+    for c in range(1,8): cs.cell(r,c).border=BOX
+    for c in (2,3,4,5,6,7): cs.cell(r,c).font=N
+    r += 1
+MAT_FIRST, MAT_LAST = 6, r-1
+cs.cell(r,1,"Sheet materials subtotal").font=B
+cs.cell(r,7,f"=SUM(G{MAT_FIRST}:G{MAT_LAST})").font=B; cs.cell(r,7).number_format='₪#,##0'
+MAT_TOT = r; r += 2
+
+# --- B. hardware
+cs.cell(r,1,"B · HARDWARE — confidence LOW. These are my estimates. Price them before you commit.").font=B
+cs.cell(r,1).fill = WRN; cs.merge_cells(f"A{r}:G{r}"); r += 1
+hdr(r, ["Item", "Qty", "", "", "", "₪ each", "₪ total"]); r += 1
+HW_FIRST = r
+for nm, q, pr in [("Concealed soft-close hinge, 35 cup", 8, 25),
+                  ("Ball-bearing runner 350, pair (skinny drawers)", 4, 60),
+                  ("Ball-bearing runner 450, pair (bench drawers)", 2, 85),
+                  ("Brass knobs (doors) + bar pulls (drawers)", 11, 60),
+                  ("Shelf pins Ø5 + spares", 40, 1.5),
+                  ("Minifix cam + bolt + cap", 60, 2.5),
+                  ("Fluted dowels Ø8×30", 40, 0.6),
+                  ("Adjustable legs 100mm", 20, 8),
+                  ("M8 concrete anchors + anti-tip", 14, 7),
+                  ("LED strip, driver, aluminium profile", 1, 400),
+                  ("Crown cove + plinth cap moulding (lin. m)", 7, 35)]:
+    cs.cell(r,1,nm).font=N; cs.cell(r,2,q).alignment=Alignment(horizontal="center")
+    cs.cell(r,6,pr).number_format='₪#,##0.00'; cs.cell(r,7,f"=B{r}*F{r}").number_format='₪#,##0'
+    for c in range(1,8): cs.cell(r,c).border=BOX
+    r += 1
+HW_LAST = r-1
+cs.cell(r,1,"Hardware subtotal").font=B
+cs.cell(r,7,f"=SUM(G{HW_FIRST}:G{HW_LAST})").font=B; cs.cell(r,7).number_format='₪#,##0'
+HW_TOT = r; r += 2
+
+# --- C. the two methods
+cs.cell(r,1,"C · THE TWO METHODS").font=B; cs.merge_cells(f"A{r}:G{r}"); r += 1
+hdr(r, ["", "", "", "", "", "LOW", "HIGH"]); r += 1
+cs.cell(r,1,"Method 1 — all-in benchmark: face area × ₪/m² for a custom MDF unit").font=N
+cs.cell(r,2,7.54).number_format="0.00"; cs.cell(r,6,1500); cs.cell(r,7,2000)
+M1R = r; r += 1
+cs.cell(r,1,"   = face 7.54 m² × rate (this ALREADY includes materials, hardware, finish)").font=SM
+cs.cell(r,6,f"=B{M1R}*F{M1R}").number_format='₪#,##0'
+cs.cell(r,7,f"=B{M1R}*G{M1R}").number_format='₪#,##0'
+M1 = r; r += 1
+cs.cell(r,1,"   + complexity loading: laminated piers and header, 7 nosings, shiplap,").font=SM
+cs.cell(r,6,0.15).number_format="0%"; cs.cell(r,7,0.25).number_format="0%"
+LOADR = r; r += 1
+cs.cell(r,1,"     mouldings, three depth planes, a sprayed finish. Not a plain wardrobe.").font=SM
+cs.cell(r,6,f"=F{M1}*(1+F{LOADR})").number_format='₪#,##0'
+cs.cell(r,7,f"=G{M1}*(1+G{LOADR})").number_format='₪#,##0'
+for c in (6,7): cs.cell(r,c).font=B
+M1TOT = r; r += 1
+cs.cell(r,1,"Method 2 — bottom-up floor: materials + hardware only, no labour, no finish").font=N
+cs.cell(r,6,f"=G{MAT_TOT}+G{HW_TOT}").number_format='₪#,##0'
+cs.cell(r,7,f"=G{MAT_TOT}+G{HW_TOT}").number_format='₪#,##0'
+M2 = r; r += 1
+cs.cell(r,1,"   implied labour + spraying (method 1 minus method 2)").font=SM
+cs.cell(r,6,f"=F{M1TOT}-F{M2}").number_format='₪#,##0'
+cs.cell(r,7,f"=G{M1TOT}-G{M2}").number_format='₪#,##0'
+r += 1
+cs.cell(r,1,"   labour as a share of the total — sanity check, should be 60–75%").font=SM
+cs.cell(r,6,f"=(F{M1TOT}-F{M2})/F{M1TOT}").number_format="0%"
+cs.cell(r,7,f"=(G{M1TOT}-G{M2})/G{M1TOT}").number_format="0%"
+r += 2
+
+# --- D. outside the carpenter
+cs.cell(r,1,"D · NOT IN THE נגר'S QUOTE").font=B; cs.merge_cells(f"A{r}:G{r}"); r += 1
+D_FIRST = r
+for nm, lo, hi in [("Electrician — drawer socket, LED feed, driver", 800, 1500),
+                   ("Cushion — 90mm HR foam, washable cover, made up", 600, 1200),
+                   ("Delivery and installation, if quoted separately", 0, 1500)]:
+    cs.cell(r,1,nm).font=N
+    cs.cell(r,6,lo).number_format='₪#,##0'; cs.cell(r,7,hi).number_format='₪#,##0'
+    for c in range(1,8): cs.cell(r,c).border=BOX
+    r += 1
+D_LAST = r-1; r += 1
+cs.cell(r,1,"ALL-IN RANGE").font=Font(name=F, size=13, bold=True)
+cs.cell(r,6,f"=F{M1TOT}+SUM(F{D_FIRST}:F{D_LAST})").font=Font(name=F,size=13,bold=True,color="C00000")
+cs.cell(r,7,f"=G{M1TOT}+SUM(G{D_FIRST}:G{D_LAST})").font=Font(name=F,size=13,bold=True,color="C00000")
+for c in (6,7): cs.cell(r,c).number_format='₪#,##0'; cs.cell(r,c).fill=WRN
+r += 2
+for note in ["Sheet prices: woodcut.co.il materials list, 122×244 sheets, read 2026-11-08. Confidence HIGH for the price, MODERATE that your yard matches it.",
+             "Labour benchmark: pro.co.il carpenter price list — custom MDF wall unit ₪1,500–2,000/m², incl. VAT. Confidence MODERATE.",
+             "Hardware: my own estimates, not quoted. Confidence LOW. The brass handles alone swing ₪300–₪1,100 depending on what you buy.",
+             "No Israeli per-m² price for MDF spray finishing was findable, so finishing sits inside the method-1 benchmark rather than as its own line.",
+             "This is an estimate for budgeting, not a quote. Get three נגרים to price the actual cut list and compare against this."]:
+    cs.cell(r,1,note).font=SM; cs.merge_cells(f"A{r}:G{r}"); r += 1
+for col, w in zip("ABCDEFG", [62, 10, 10, 9, 9, 14, 14]): cs.column_dimensions[col].width = w
+
 wb.save("Nook_unit_cutlist.xlsx")
 print("workbook written")

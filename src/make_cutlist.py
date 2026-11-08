@@ -7,21 +7,16 @@ sys.path.insert(0, os.path.join(SKILL, "scripts"))
 
 BIG = [2800, 2070]; SML = [2440, 1220]
 MATERIALS = [
-  {"id":"mdf18","name":"MDF 18mm / MDF 18 מ\"מ — גוף","thickness":18,"sheet":BIG,"kerf":4,"trim":10},
-  {"id":"mdf19","name":"MDF 19mm / MDF 19 — חזיתות שייקר + משטח","thickness":19,"sheet":BIG,"kerf":4,"trim":10},
-  {"id":"mdf30","name":"MDF 30mm / MDF 30 — סרגלי פילוס לחלל שירות","thickness":30,"sheet":BIG,"kerf":4,"trim":10},
-  {"id":"mdf28","name":"MDF 28mm / MDF 28 — משטח ישיבה","thickness":28,"sheet":BIG,"kerf":4,"trim":10},
-  {"id":"mdf12","name":"MDF 12mm / MDF 12 — סרגלי גומחה","thickness":12,"sheet":SML,"kerf":3,"trim":10},
-  {"id":"mdf10","name":"MDF 10mm / MDF 10 — גבים גלויים","thickness":10,"sheet":BIG,"kerf":3,"trim":10},
+  {"id":"mdf19","name":"MDF 19mm / MDF 19 — גוף, חזיתות שייקר, מדפים","thickness":19,"sheet":SML,"kerf":4,"trim":10},
+  {"id":"mdf28","name":"MDF 28mm / MDF 28 — משטח ישיבה + סרגלי פילוס","thickness":28,"sheet":SML,"kerf":4,"trim":10},
+  {"id":"mdf12","name":"MDF 12mm / MDF 12 — גבים גלויים + שיפלאפ","thickness":12,"sheet":SML,"kerf":3,"trim":10},
   {"id":"hb4",  "name":"Hardboard 4mm / מזונית 4 — גבים נסתרים","thickness":4,"sheet":SML,"kerf":3,"trim":10},
-  {"id":"ply15","name":"Birch ply 15mm / דיקט בירץ' 15 — ארגזי מגירה","thickness":15,"sheet":SML,"kerf":3,"trim":10},
-  {"id":"ply12","name":"Birch ply 12mm / דיקט בירץ' 12 — ארגזי מגירה דקה","thickness":12,"sheet":SML,"kerf":3,"trim":10},
+  {"id":"ply12","name":"Birch ply 12mm / דיקט בירץ' 12 — ארגזי מגירה","thickness":12,"sheet":SML,"kerf":3,"trim":10},
 ]
-MATFOR = {("mdf",30):"mdf30",("mdf",18):"mdf18",("mdf",19):"mdf19",("mdf",28):"mdf28",("mdf",12):"mdf12",
-          ("mdf",10):"mdf10",("mdf",20):"mdf19",("hardboard",4):"hb4",
-          ("plywood_birch",15):"ply15",("plywood_birch",12):"ply12"}
+MATFOR = {("mdf",19):"mdf19",("mdf",28):"mdf28",("mdf",12):"mdf12",
+          ("hardboard",4):"hb4",("plywood_birch",12):"ply12"}
 # the counter is 19mm MDF
-MATFOR[("mdf",19)] = "mdf19"
+pass  # every panel is now a stocked thickness
 
 HE = {
  "Pier":"עמוד גומחה / Nook pier","BaseSide":"צד ארון תחתון / Base side",
@@ -80,8 +75,8 @@ for (defn, L, w, mid), qty in sorted(groups.items(), key=lambda kv: (-kv[0][1], 
                   "material": mid, "grain": "none", "banding": [],
                   "notes": NOTE.get(defn, "")})
 
-out = {"project": "Horvitz main-room nook unit — PROVISIONAL (plan dims, not site-measured)",
+out = {"project": "Horvitz main-room nook unit v1.0 — design locked, NOT site-measured",
        "units": "mm", "materials": MATERIALS, "parts": parts,
-       "checks": {"overall": {"width": 2900, "height": 2600, "depth": 500}}}
+       "checks": {"overall": {"width": 2900, "height": 2600, "depth": 501}}}
 json.dump(out, open("cutlist_spec.json", "w"), ensure_ascii=False, indent=1)
 print(f"{len(parts)} line items, {sum(p['qty'] for p in parts)} pieces")

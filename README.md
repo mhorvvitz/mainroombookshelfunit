@@ -1,17 +1,38 @@
-# Main-room nook unit — carpenter package
+# Main-room nook unit — v1.0
 
-**Status: DRAFT. Cuts are not locked.** Two things stand between this and a
-buildable package:
+**Design locked.** Every decision is settled and recorded in the review
+artifact's store: greige paint, horizontal shiplap nook back, no dividers
+anywhere, knobs on doors with bar pulls on drawers in brass, no sconces, socket
+inside a bench drawer, LED strip behind the header fascia, sprayed MDF counter,
+door with an adjustable shelf behind each base front, skinny drawers kept,
+frieze-plus-cove crown, recessed plinth with a cap moulding, 90mm HR foam cushion.
 
-1. **Seven design decisions are open.** They live on the Decisions tab of the
-   review artifact. Six are settled: greige paint, horizontal shiplap nook back,
-   knobs on doors with bar pulls on drawers in brass, no sconces, socket inside
-   a bench drawer, LED strip behind the header fascia.
-2. **Nobody has measured the wall.** Every controlling dimension (2900 run, 2600
-   ceiling) is an architect's plan dimension. A plan dimension is an intention;
-   a wall is a fact.
+**One thing still blocks cutting: nobody has measured the wall.** Every
+controlling dimension (2900 run, 2600 ceiling) is an architect's plan dimension.
+A plan dimension is an intention; a wall is a fact. Fill in the yellow cells on
+the *Measure first* tab of the workbook and the whole package regenerates from
+the same source in minutes.
 
-Settle both and the whole package regenerates from the same source in minutes.
+## Build cost — ₪14,400–23,000 all in, incl. VAT
+
+| | ₪ | confidence |
+|---|---:|---|
+| Sheet materials | 1,900 | **high** — real quoted price list |
+| Hardware | 2,400 | **low** — my estimate, price it |
+| Joinery all in (includes both rows above) | 13,000–18,900 | **moderate** |
+| Electrician, cushion, fitting | 1,400–4,200 | **low** |
+| **All in** | **14,400–23,000** | |
+
+Two independent methods, cross-checked. Sheet prices come from a current
+Israeli cutting-service price list; the labour figure is a published benchmark
+of ₪1,500–2,000/m² for a custom MDF unit, loaded 15–25% because this piece is
+not a plain wardrobe — laminated piers and header, seven nosings, shiplap,
+mouldings and three depth planes. Implied labour lands at 67–77% of the total,
+which is the right band for sprayed joinery. Full working on the **Cost** tab
+of the workbook.
+
+This is a budgeting estimate, not a quote. Get three נגרים to price the actual
+cut list and compare.
 
 ## What's in the repo
 
@@ -84,11 +105,7 @@ gone it is the only thing lighting the nook. Without it the recess reads as a
 black hole from the couch — which is the failure mode of every dark built-in in
 a room this size.
 
-## Open items
-
-**Seven design decisions** — on the review artifact's Decisions tab: counter
-material, shelf-back colour, what goes behind the base doors, the skinny
-drawers, crown profile, plinth profile, cushion.
+## Still open
 
 **Site measurement** — three widths, three heights, both diagonals. Build to the
 *smallest* reading. The 2900 here is nominal: the carcass must be built to the
@@ -121,6 +138,8 @@ not exist yet.
   separate box behind it.
 - **Buy all eleven brass handles in one order.** Unlacquered brass patinates
   and will not match a piece bought later.
+- **Everything is 19mm.** 18mm MDF is not a stocked thickness in Israel —
+  supplier lists run 17/19/24/28. Carcass, fronts and shelves are all 19mm.
 - **Crown is two lengths** with a scarf joint on the left pier centreline
   (x=832), where a vertical shadow line already falls. A single 2900 piece
   exceeds every sheet in the catalogue.
@@ -135,6 +154,7 @@ not exist yet.
 |---|---|
 | Geometry is internally consistent; 86 parts, zero collisions | **high** — `check_overlaps()` clean, every part validated against real sheet stock |
 | Deflection calculations | **high** on the method (standard beam theory), **moderate** on MDF E=3000 N/mm² — it varies by board; the margins absorb it |
-| Material thicknesses exist in Israeli stock | **moderate** — from seeded supplier data, confirm with your yard |
+| Material thicknesses exist in Israeli stock | **high** — every thickness cross-checked against a live supplier price list |
+| Cost estimate | **moderate** overall; **high** on sheet prices, **low** on hardware |
 | Runner and hinge clearances | **moderate** — typical values, confirm against the product datasheet before machining |
 | That 2900 × 2600 is what is actually on site | **unknown** — nobody has measured it |

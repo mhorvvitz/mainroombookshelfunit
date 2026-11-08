@@ -17,8 +17,10 @@ SKILL = "/root/.claude/skills/synced/50b1bd87-06ff-4b00-829c-fb046f957e69_776f7a
 sys.path.insert(0, os.path.join(SKILL, "scripts"))
 from carcass import Carcass, cutlist_parts, check_overlaps
 
-T       = 18   # carcass panel, MDF
-T_FRONT = 19   # routed shaker fronts, MDF
+# 18mm MDF IS NOT STOCKED IN ISRAEL. Supplier lists run 17/19/24/28 and the
+# skill catalogue 16/19/22/28/30. Everything is 19mm: carcass and fronts alike.
+T       = 19
+T_FRONT = 19
 MAT = "mdf"
 
 # ---------------- controlling dimensions ----------------
@@ -32,7 +34,7 @@ D_BASE   = 412    # + 19 shaker door = 431 face
 D_COUNT  = 440
 D_BENCH  = 482    # + 19 drawer front = 501 face
 D_PIER   = 412
-VOID     = 30     # service void behind the nook back — LED feed runs here
+VOID     = 28     # service void behind the nook back — LED feed runs here (28mm rips)
 PLINTH_SETBACK = 60
 
 # ---------------- vertical stack (Y) ----------------
@@ -42,8 +44,8 @@ T_DECK     = 28   # bench deck: TWO drawers = one mullion = 591 span.
 Y_BENCH    = 380  # deck top (+90 cushion ≈ 450 finished seat)
 Y_BASE_TOP = 881
 Y_COUNT    = 900  # counter surface (19mm)
-HDR_DECK   = 36   # 2 x 18 laminated
-HDR_DROP   = 64   # fascia below the deck -> 100 visible band.
+HDR_DECK   = 2*T  # 38, two 19mm leaves laminated
+HDR_DROP   = 62   # fascia below a 38 deck -> 100 visible band.
                   # At 92 kg/m over 1200 a 70 band is 4.48mm and 90 is 2.40mm
                   # (no margin). 100 is the first honest number. Hides the LED.
 Y_HDR_T    = 1716                    # header deck top
@@ -53,13 +55,13 @@ Y_SHELF1   = 1308
 Y_SHELF2   = 2117
 Y_CARC_TOP = 2500                    # crown 2500..2600, scribed to the ceiling
 
-NOSE_SIDE  = 52   # 18 deck + 52 nosing  = 70 band, 796 span -> 0.67mm
-NOSE_MID   = 34   # 36 deck + 34 nosing  = 70 band, 1200 span -> 1.76mm
+NOSE_SIDE  = 51   # 19 deck + 51 nosing  = 70 band, 793 span -> 0.63mm
+NOSE_MID   = 32   # 38 deck + 32 nosing  = 70 band, 1200 span -> 1.64mm
 
 # ---------------- horizontal layout (X) ----------------
 # No dividers anywhere. Two full-width side bays and the nook.
-# 18 | 796 | 36 pier | 1200 nook | 36 pier | 796 | 18  = 2900
-BAY, NOOK = 796, 1200
+# 19 | 793 | 38 pier | 1200 nook | 38 pier | 793 | 19  = 2900
+BAY, NOOK = 793, 1200
 x = 0
 V1     = x; x += T          # 0..18      left end panel (exposed, by the door)
 BL     = x; x += BAY        # 18..814    (concrete starts at 600 inside this bay)
@@ -124,8 +126,8 @@ for i in range(2):
     fw = (NOOK - 3*3) / 2
     A("BenchDrawerFront", X_NOOK + 3 + i*(fw + 3), bo0 + 3, D_BENCH, fw, (bo1 - bo0) - 6, T_FRONT, kind="door")
     bx = X_NOOK + i*(BW + T)
-    for off in (0, BW - 26 - 15):
-        A("BenchBoxSide", bx + 13 + off, bo0 + 8, 30, 15, (bo1 - bo0) - 30, 440,
+    for off in (0, BW - 26 - 12):
+        A("BenchBoxSide", bx + 13 + off, bo0 + 8, 30, 12, (bo1 - bo0) - 30, 440,
           material="plywood_birch", grain="none")
 
 # ============ NOOK BACK — horizontal shiplap on a 30mm SERVICE VOID =========
@@ -155,19 +157,19 @@ for xp in SINGLE_V:
 for (x0, x1) in BAYS:
     w = x1 - x0
     A("UpperTop",  x0, Y_CARC_TOP - T, 0, w, T, D_UPPER)
-    A("UpperBack", x0, Y_COUNT, 0, w, Y_CARC_TOP - Y_COUNT - T, 10, material="mdf", grain="none")
+    A("UpperBack", x0, Y_COUNT, 0, w, Y_CARC_TOP - Y_COUNT - T, 12, material="mdf", grain="none")
     # 18 deck + 52 nosing = 70 band. Plain 18mm at 796 sags 6.2mm with creep.
     for ytop in (Y_SHELF1, Y_HDR_T, Y_SHELF2):
-        A("Shelf", x0 + 1, ytop - T, 10, w - 2, T, D_UPPER - 26)
-        A("ShelfNosing", x0 + 1, ytop - T - NOSE_SIDE, D_UPPER - 26 + 10 - T,
+        A("Shelf", x0 + 1, ytop - T, 12, w - 2, T, D_UPPER - 28)
+        A("ShelfNosing", x0 + 1, ytop - T - NOSE_SIDE, D_UPPER - 28 + 12 - T,
           w - 2, NOSE_SIDE, T, note="52 below the deck -> 70 visible band")
 # centre: one full-width shelf, 36 deck + 34 nosing = the same 70 band
 A("UpperTop", X_NOOK, Y_CARC_TOP - T, 0, NOOK, T, D_UPPER)
-A("UpperBack", X_NOOK, Y_HDR_T, 0, NOOK, Y_CARC_TOP - Y_HDR_T - T, 10, material="mdf", grain="none")
+A("UpperBack", X_NOOK, Y_HDR_T, 0, NOOK, Y_CARC_TOP - Y_HDR_T - T, 12, material="mdf", grain="none")
 for k in (0, 1):
-    A("ShelfWide", X_NOOK + 1, Y_SHELF2 - 2*T + k*T, 10, NOOK - 2, T, D_UPPER - 26,
+    A("ShelfWide", X_NOOK + 1, Y_SHELF2 - 2*T + k*T, 12, NOOK - 2, T, D_UPPER - 28,
       note=f"laminated leaf {k+1} of 2 -> 36mm")
-A("ShelfWideNosing", X_NOOK + 1, Y_SHELF2 - 2*T - NOSE_MID, D_UPPER - 26 + 10 - T,
+A("ShelfWideNosing", X_NOOK + 1, Y_SHELF2 - 2*T - NOSE_MID, D_UPPER - 28 + 12 - T,
   NOOK - 2, NOSE_MID, T, note="34 below a 36 deck -> the same 70 visible band")
 
 # ============ CROWN =========================================================

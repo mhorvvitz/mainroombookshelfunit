@@ -35,7 +35,7 @@ class Sheet:
         s.line(x,y1,x,y2,DIM,.8)
         for y in (y1,y2): s.line(x-3.5,y,x+3.5,y,DIM,.8)
         s.o.append(f'<text x="{x-4.5:.1f}" y="{(y1+y2)/2:.1f}" font-size="{sz}" fill="{DIM}" text-anchor="middle" font-weight="600" font-family="\'DejaVu Sans Mono\',monospace" transform="rotate(-90 {x-4.5:.1f} {(y1+y2)/2:.1f})">{lab}</text>')
-    def title(s, sub, status="DRAFT — 7 decisions open · NOT site-measured"):
+    def title(s, sub, status="v1.0 DESIGN LOCKED · NOT site-measured — do not cut"):
         s.line(40,H-56,W-40,H-56,INK,1.0)
         s.txt(40,H-38,"MAIN-ROOM NOOK UNIT",15,INK,"start","700")
         s.txt(40,H-22,sub,11,NOTE)
@@ -79,22 +79,22 @@ ROWS=[("H","HEIGHTS — from finished floor",None,None),
  (1,"Plinth","0 → 100","recessed 60, cap moulding on top"),
  (2,"Bench zone","100 → 380","two drawers; deck is 28mm"),
  (3,"Nook clear","380 → 1616","1236 high × 1200 wide"),
- (4,"Header fascia","1616 → 1680","64 drop; 100 band. L-beam + hides the LED"),
- (5,"Header deck","1680 → 1716","36mm, 2×18 laminated"),
+ (4,"Header fascia","1616 → 1678","62 drop; 100 band. L-beam + hides the LED"),
+ (5,"Header deck","1678 → 1716","38mm, 2×19 laminated"),
  (6,"Counter","881 → 900","19mm; the line runs right across"),
- (7,"Centre shelf","2081 → 2117","36mm deck + 34 nosing"),
+ (7,"Centre shelf","2079 → 2117","38mm deck + 32 nosing"),
  (8,"Carcass top","2500","crown to 2600, scribed"),
  ("W","WIDTHS — left to right",None,None),
- (9,"End panel","18","exposed return beside the door"),
- (10,"Side bay","796 × 2","no dividers; shelves run right across"),
- (12,"Nook pier","36 × 2","2×18 laminated, full height"),
+ (9,"End panel","19","exposed return beside the door"),
+ (10,"Side bay","793 × 2","no dividers; shelves run right across"),
+ (12,"Nook pier","38 × 2","2×19 laminated, full height"),
  (13,"NOOK","1200","clear between piers"),
  ("","Shelf band","70","every shelf, side and centre alike"),
  ("D","DEPTHS — from the wall face",None,None),
  ("","Upper shelves","320","books read properly at this depth"),
- ("","Base + door","430","412 carcass + 19 shaker front"),
+ ("","Base + door","431","412 carcass + 19 shaker front"),
  ("","Bench deck","500","70 proud of the base run"),
- ("","Service void","30","behind the nook back — see sheet 3"),
+ ("","Service void","28","LED feed only — see sheet 3"),
 ]
 y=TY+10
 for a,b,c,d in ROWS:
@@ -184,7 +184,7 @@ def dev(x,y,w,h,lab,c):
     s3.rect(ax_(x),ay_(y+h),w*MM*KA,h*MM*KA,"#fff",1.4,c)
     s3.txt(ax_(x)+w*MM*KA/2,ay_(y+h)-6,lab,9,c,"middle","700")
 s3.rect(ax_(850),ay_(1616),1200*MM*KA,9,"#fff",1.5,"#b8860b")
-s3.txt(ax_(1450),ay_(1616)-11,"LED STRIP — concealed behind the 64 header fascia",9,"#8a6016","middle","700")
+s3.txt(ax_(1450),ay_(1616)-11,"LED STRIP — concealed behind the 62 header fascia",9,"#8a6016","middle","700")
 s3.txt(ax_(1450),ay_(1440),"washes down the shiplap",9,NOTE,"middle")
 s3.vdim(ax_(850)-20,ay_(1616),ay_(380),"1236 nook clear",10)
 s3.txt(AX+12,AY+AH-58,"NO boxes are cut into the nook back at all. The shiplap runs",9.5,NOTE)
@@ -197,12 +197,12 @@ panel(BX,BY,BW,BH,"B","HORIZONTAL SECTION through the nook back","1:2")
 KB=0.5; bz=BX+150; bt,bb=BY+58,BY+168
 def hz(z): return bz+z*MM*KB
 s3.rect(hz(-50),bt,50*MM,bb-bt,GHOST,.9)
-s3.rect(hz(0),bt,30*MM,bb-bt,VOID,1.3,DIM)
-s3.rect(hz(30),bt,18*MM,bb-bt,FILL,.9)
-s3.rect(hz(48),bt+22,12*MM,bb-bt-44,"#e1ddd4",.9)
+s3.rect(hz(0),bt,28*MM*KB,bb-bt,VOID,1.3,DIM)
+s3.rect(hz(28),bt,19*MM*KB,bb-bt,FILL,.9)
+s3.rect(hz(47),bt+22,12*MM*KB,bb-bt-44,"#e1ddd4",.9)
 s3.circ(hz(15),(bt+bb)/2,13,"#fff",DIM,1.4)
 s3.txt(hz(15),(bt+bb)/2+4,"C",10,DIM,"middle","700")
-for z,lab,c in [(-25,"concrete",NOTE),(15,"30 VOID",DIM),(39,"18 back",NOTE),(54,"12 batten",NOTE)]:
+for z,lab,c in [(-25,"concrete",NOTE),(14,"28 VOID",DIM),(38,"19 back",NOTE),(53,"12 shiplap",NOTE)]:
     s3.txt(hz(z),bb+16,lab,9.5,c,"middle","700" if c==DIM else "600")
 s3.txt(hz(15),bb+30,"conduit runs here",9,DIM,"middle")
 s3.txt(BX+290,BY+70,"Five 45-wide furring strips hold the back panel",10,NOTE)
@@ -235,7 +235,7 @@ s3.txt(cl+200,cy_(250)+17,"box is in reach. That is the access.",9.5,NOTE,"start
 s3.txt(cl+200,cy_(250)+30,"The LED driver lives in it too.",9.5,"#8a6016","start","700")
 s3.txt(cl+24,cy_(330)+4,"EXISTING BOX — stays where it is,",9.5,"#8c3b2e","start","700")
 s3.txt(cl+24,cy_(330)+17,"live, as an accessible junction",9.5,"#8c3b2e","start","700")
-s3.txt(cl+152,cy_(1100)+4,"30 void — one LV cable only",9.5,DIM,"start","700")
+s3.txt(cl+152,cy_(1100)+4,"28 void — one LV cable only",9.5,DIM,"start","700")
 
 # ---------- notes column
 NX2,NY2=1076,132
@@ -244,7 +244,7 @@ s3.line(NX2,NY2+7,W-46,NY2+7,INK,.8)
 steps=[("1","Leaves the existing box where it is, live. It ends up behind the right-hand bench drawer, which pulls out — that is the access."),
  ("2","Takes a spur from it to a socket mounted INSIDE that drawer. Charging drawer: phones and the LED driver live in there, nothing on show."),
  ("3","Runs ONE low-voltage cable from the driver, through a Ø20 hole at the rear of the bench deck, up inside the 30mm void to the header."),
- ("4","Terminates at the LED strip behind the 64mm header fascia, washing down the shiplap. No sconces, no boxes in the nook back."),
+ ("4","Terminates at the LED strip behind the 62mm header fascia, washing down the shiplap. No sconces, no boxes in the nook back."),
  ("5","Nothing is chased into the concrete. No core drilling, no rebar scanning, no risk to the 4\" drain stack in this wall.")]
 yy=NY2+28
 for n,t in steps:

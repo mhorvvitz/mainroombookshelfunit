@@ -1,69 +1,36 @@
 {
- "project": "Horvitz main-room nook unit — PROVISIONAL (plan dims, not site-measured)",
+ "project": "Horvitz main-room nook unit v1.0 — design locked, NOT site-measured",
  "units": "mm",
  "materials": [
   {
-   "id": "mdf18",
-   "name": "MDF 18mm / MDF 18 מ\"מ — גוף",
-   "thickness": 18,
-   "sheet": [
-    2800,
-    2070
-   ],
-   "kerf": 4,
-   "trim": 10
-  },
-  {
    "id": "mdf19",
-   "name": "MDF 19mm / MDF 19 — חזיתות שייקר + משטח",
+   "name": "MDF 19mm / MDF 19 — גוף, חזיתות שייקר, מדפים",
    "thickness": 19,
    "sheet": [
-    2800,
-    2070
-   ],
-   "kerf": 4,
-   "trim": 10
-  },
-  {
-   "id": "mdf30",
-   "name": "MDF 30mm / MDF 30 — סרגלי פילוס לחלל שירות",
-   "thickness": 30,
-   "sheet": [
-    2800,
-    2070
+    2440,
+    1220
    ],
    "kerf": 4,
    "trim": 10
   },
   {
    "id": "mdf28",
-   "name": "MDF 28mm / MDF 28 — משטח ישיבה",
+   "name": "MDF 28mm / MDF 28 — משטח ישיבה + סרגלי פילוס",
    "thickness": 28,
    "sheet": [
-    2800,
-    2070
+    2440,
+    1220
    ],
    "kerf": 4,
    "trim": 10
   },
   {
    "id": "mdf12",
-   "name": "MDF 12mm / MDF 12 — סרגלי גומחה",
+   "name": "MDF 12mm / MDF 12 — גבים גלויים + שיפלאפ",
    "thickness": 12,
    "sheet": [
     2440,
     1220
-   ],
-   "kerf": 3,
-   "trim": 10
-  },
-  {
-   "id": "mdf10",
-   "name": "MDF 10mm / MDF 10 — גבים גלויים",
-   "thickness": 10,
-   "sheet": [
-    2800,
-    2070
    ],
    "kerf": 3,
    "trim": 10
@@ -80,19 +47,8 @@
    "trim": 10
   },
   {
-   "id": "ply15",
-   "name": "Birch ply 15mm / דיקט בירץ' 15 — ארגזי מגירה",
-   "thickness": 15,
-   "sheet": [
-    2440,
-    1220
-   ],
-   "kerf": 3,
-   "trim": 10
-  },
-  {
    "id": "ply12",
-   "name": "Birch ply 12mm / דיקט בירץ' 12 — ארגזי מגירה דקה",
+   "name": "Birch ply 12mm / דיקט בירץ' 12 — ארגזי מגירה",
    "thickness": 12,
    "sheet": [
     2440,
@@ -108,7 +64,7 @@
    "qty": 4,
    "length": 2400,
    "width": 412,
-   "material": "mdf18",
+   "material": "mdf19",
    "grain": "none",
    "banding": [],
    "notes": "2 leaves laminated to 36mm per pier; full height 100-2500; carries the header"
@@ -116,9 +72,9 @@
   {
    "name": "כרכוב / Crown fascia",
    "qty": 1,
-   "length": 2068,
+   "length": 2069,
    "width": 100,
-   "material": "mdf18",
+   "material": "mdf19",
    "grain": "none",
    "banding": [],
    "notes": "two lengths, scarf joint on the left pier centreline (x=832); scribe to ceiling"
@@ -128,7 +84,7 @@
    "qty": 2,
    "length": 1600,
    "width": 320,
-   "material": "mdf18",
+   "material": "mdf19",
    "grain": "none",
    "banding": [],
    "notes": "System 32: two rows of 5mm holes, front row 37 from the front edge"
@@ -136,9 +92,9 @@
   {
    "name": "גב ארון עליון / Upper back",
    "qty": 2,
-   "length": 1582,
-   "width": 796,
-   "material": "mdf10",
+   "length": 1581,
+   "width": 793,
+   "material": "mdf12",
    "grain": "none",
    "banding": [],
    "notes": "VISIBLE inside open shelving — sprayed both faces"
@@ -148,7 +104,7 @@
    "qty": 1,
    "length": 1236,
    "width": 1200,
-   "material": "mdf18",
+   "material": "mdf19",
    "grain": "none",
    "banding": [],
    "notes": "cut the socket box and 2 sconce boxes on site AFTER the electrician sets positions"
@@ -158,7 +114,7 @@
    "qty": 5,
    "length": 1236,
    "width": 45,
-   "material": "mdf30",
+   "material": "mdf28",
    "grain": "none",
    "banding": [],
    "notes": "5 off; creates the 30mm SERVICE VOID — socket + sconce wiring runs here, no chasing the concrete"
@@ -168,7 +124,7 @@
    "qty": 1,
    "length": 1200,
    "width": 482,
-   "material": "mdf18",
+   "material": "mdf19",
    "grain": "none",
    "banding": [],
    "notes": ""
@@ -188,7 +144,7 @@
    "qty": 2,
    "length": 1200,
    "width": 320,
-   "material": "mdf18",
+   "material": "mdf19",
    "grain": "none",
    "banding": [],
    "notes": "2 leaves laminated to 36mm; glue+screw the fascia on to form the L-beam"
@@ -197,8 +153,8 @@
    "name": "חזית הקורה / Header fascia",
    "qty": 2,
    "length": 1200,
-   "width": 64,
-   "material": "mdf18",
+   "width": 62,
+   "material": "mdf19",
    "grain": "none",
    "banding": [],
    "notes": "64 below a 36 deck = 100mm band. Carries the opening AND hides the LED strip"
@@ -208,7 +164,7 @@
    "qty": 1,
    "length": 1200,
    "width": 100,
-   "material": "mdf18",
+   "material": "mdf19",
    "grain": "none",
    "banding": [],
    "notes": ""
@@ -227,8 +183,8 @@
    "name": "גב ארון עליון / Upper back",
    "qty": 1,
    "length": 1200,
-   "width": 766,
-   "material": "mdf10",
+   "width": 765,
+   "material": "mdf12",
    "grain": "none",
    "banding": [],
    "notes": "VISIBLE inside open shelving — sprayed both faces"
@@ -238,7 +194,7 @@
    "qty": 1,
    "length": 1200,
    "width": 320,
-   "material": "mdf18",
+   "material": "mdf19",
    "grain": "none",
    "banding": [],
    "notes": ""
@@ -247,8 +203,8 @@
    "name": "מדף מרכזי רחב / Wide centre shelf",
    "qty": 2,
    "length": 1198,
-   "width": 294,
-   "material": "mdf18",
+   "width": 292,
+   "material": "mdf19",
    "grain": "none",
    "banding": [],
    "notes": "2 leaves laminated to 36mm; spans the full 1200 with no divider"
@@ -257,8 +213,8 @@
    "name": "חזית מדף מרכזי / Centre shelf nosing",
    "qty": 1,
    "length": 1198,
-   "width": 34,
-   "material": "mdf18",
+   "width": 32,
+   "material": "mdf19",
    "grain": "none",
    "banding": [],
    "notes": "34 deep under the 36mm centre deck -> the same 70mm band"
@@ -268,7 +224,7 @@
    "qty": 2,
    "length": 850,
    "width": 100,
-   "material": "mdf18",
+   "material": "mdf19",
    "grain": "none",
    "banding": [],
    "notes": ""
@@ -276,9 +232,9 @@
   {
    "name": "כרכוב / Crown fascia",
    "qty": 1,
-   "length": 832,
+   "length": 831,
    "width": 100,
-   "material": "mdf18",
+   "material": "mdf19",
    "grain": "none",
    "banding": [],
    "notes": "two lengths, scarf joint on the left pier centreline (x=832); scribe to ceiling"
@@ -286,7 +242,7 @@
   {
    "name": "משטח / Counter",
    "qty": 2,
-   "length": 814,
+   "length": 812,
    "width": 440,
    "material": "mdf19",
    "grain": "none",
@@ -296,8 +252,8 @@
   {
    "name": "גב ארון תחתון / Base back",
    "qty": 2,
-   "length": 796,
-   "width": 745,
+   "length": 793,
+   "width": 743,
    "material": "hb4",
    "grain": "none",
    "banding": [],
@@ -306,9 +262,9 @@
   {
    "name": "תחתית ארון תחתון / Base bottom",
    "qty": 2,
-   "length": 796,
+   "length": 793,
    "width": 412,
-   "material": "mdf18",
+   "material": "mdf19",
    "grain": "none",
    "banding": [],
    "notes": ""
@@ -316,9 +272,9 @@
   {
    "name": "עליונית ארון תחתון / Base top",
    "qty": 2,
-   "length": 796,
+   "length": 793,
    "width": 412,
-   "material": "mdf18",
+   "material": "mdf19",
    "grain": "none",
    "banding": [],
    "notes": ""
@@ -326,9 +282,9 @@
   {
    "name": "עליונית ארון עליון / Upper top",
    "qty": 2,
-   "length": 796,
+   "length": 793,
    "width": 320,
-   "material": "mdf18",
+   "material": "mdf19",
    "grain": "none",
    "banding": [],
    "notes": ""
@@ -336,9 +292,9 @@
   {
    "name": "מדף / Shelf",
    "qty": 6,
-   "length": 794,
-   "width": 294,
-   "material": "mdf18",
+   "length": 791,
+   "width": 292,
+   "material": "mdf19",
    "grain": "none",
    "banding": [],
    "notes": "adjustable on 5mm pins; 298 deep leaves a 22 front setback"
@@ -346,9 +302,9 @@
   {
    "name": "חזית מדף / Shelf nosing",
    "qty": 6,
-   "length": 794,
-   "width": 52,
-   "material": "mdf18",
+   "length": 791,
+   "width": 51,
+   "material": "mdf19",
    "grain": "none",
    "banding": [],
    "notes": "52 deep, glued+screwed under the shelf front edge -> 70mm visible band. WITHOUT it an 18mm shelf at 796 sags 6.2mm"
@@ -358,7 +314,7 @@
    "qty": 2,
    "length": 781,
    "width": 412,
-   "material": "mdf18",
+   "material": "mdf19",
    "grain": "none",
    "banding": [],
    "notes": "System 32 both rows"
@@ -367,7 +323,7 @@
    "name": "חזית מגירת ספסל / Bench drawer front",
    "qty": 2,
    "length": 596,
-   "width": 228,
+   "width": 227,
    "material": "mdf19",
    "grain": "none",
    "banding": [],
@@ -376,8 +332,8 @@
   {
    "name": "דלת שייקר / Shaker door",
    "qty": 4,
-   "length": 589,
-   "width": 394,
+   "length": 587,
+   "width": 392,
    "material": "mdf19",
    "grain": "none",
    "banding": [],
@@ -387,8 +343,8 @@
    "name": "מחיצת ספסל / Bench mullion",
    "qty": 1,
    "length": 482,
-   "width": 234,
-   "material": "mdf18",
+   "width": 233,
+   "material": "mdf19",
    "grain": "none",
    "banding": [],
    "notes": ""
@@ -397,8 +353,8 @@
    "name": "צד ארגז מגירה / Drawer box side",
    "qty": 4,
    "length": 440,
-   "width": 204,
-   "material": "ply15",
+   "width": 203,
+   "material": "ply12",
    "grain": "none",
    "banding": [],
    "notes": ""
@@ -406,7 +362,7 @@
   {
    "name": "חזית מגירה דקה / Skinny drawer front",
    "qty": 4,
-   "length": 394,
+   "length": 392,
    "width": 147,
    "material": "mdf19",
    "grain": "none",
@@ -428,7 +384,7 @@
   "overall": {
    "width": 2900,
    "height": 2600,
-   "depth": 500
+   "depth": 501
   }
  }
 }

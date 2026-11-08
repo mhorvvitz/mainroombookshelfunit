@@ -105,6 +105,15 @@ main{flex:1 1 auto;min-height:0;position:relative}
 .opt .tick{font-size:10px;opacity:.75;display:block;margin-top:2px;font-weight:400}
 .recpill{font-size:9.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
   color:var(--accent);background:var(--accent-soft);border-radius:3px;padding:2px 6px}
+.costgrid{display:grid;gap:8px}
+.costgrid>div{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;
+  padding-bottom:7px;border-bottom:1px solid var(--line)}
+.costgrid>div:last-child{border-bottom:0}
+.costgrid span{font-size:13px;flex:1 1 150px;min-width:0}
+.costgrid b{font-family:var(--f-num);font-size:14px;font-variant-numeric:tabular-nums}
+.costgrid i{font-size:11px;color:var(--muted);font-style:normal;flex:0 0 auto}
+.costgrid .tot{padding-top:4px}
+.costgrid .tot span,.costgrid .tot b{font-weight:700;font-size:15px;color:var(--accent)}
 .locked{font-size:12.5px;color:var(--muted);display:flex;gap:8px;align-items:baseline}
 .locked b{color:var(--fg)}
 @media (max-width:620px){#hint{margin-left:0;text-align:left;max-width:none}}
@@ -115,8 +124,8 @@ main{flex:1 1 auto;min-height:0;position:relative}
   <header>
     <div class="hrow">
       <h1>Main-room nook unit</h1>
-      <span class="badge">Draft &mdash; cuts not locked</span>
-      <span class="sub">2900 &times; 2600 &middot; 86 parts &middot; MDF, sprayed</span>
+      <span class="badge" style="border-color:var(--ok);color:var(--ok)">v1.0 &mdash; design locked</span>
+      <span class="sub">2900 &times; 2600 &middot; 86 parts &middot; 19mm MDF, sprayed &middot; &#8362;14,400&ndash;23,000</span>
     </div>
     <nav role="tablist">
       <button role="tab" id="t-3d" aria-selected="true">Build</button>
@@ -153,7 +162,18 @@ main{flex:1 1 auto;min-height:0;position:relative}
 
     <section class="pane" id="pdec" hidden>
       <div class="col">
-        <p class="intro">Seven things are still open. Each one has my recommendation and the reason behind it &mdash; disagree freely, that is what this page is for. <b>Nothing is cut until these are settled and the wall is measured.</b></p>
+        <p class="intro">Every decision is now locked at v1.0 and saved here. Change any of them and the 3D follows &mdash; but the drawings and cut list in the repo are frozen at these answers until I regenerate them. <b>The wall is still unmeasured, so nothing can be cut.</b></p>
+      <div class="card" id="costcard">
+        <div class="q"><h3>Build cost</h3><span class="recpill">estimate, not a quote</span></div>
+        <p class="why">Two methods, cross-checked. Sheet prices are a real quoted list; the labour rate is a published Israeli benchmark; hardware is my own estimate and is the weakest line. Implied labour lands at 67&ndash;77% of the total, which is the right band for sprayed joinery.</p>
+        <div class="costgrid">
+          <div><span>Sheet materials</span><b>&#8362;1,900</b><i>confidence high</i></div>
+          <div><span>Hardware</span><b>&#8362;2,400</b><i>confidence low &mdash; price it</i></div>
+          <div><span>Joinery, all in</span><b>&#8362;13,000&ndash;18,900</b><i>includes the two rows above</i></div>
+          <div><span>Electrician + cushion + fitting</span><b>&#8362;1,400&ndash;4,200</b><i>outside the &#1504;&#1490;&#1512;'s quote</i></div>
+          <div class="tot"><span>All in</span><b>&#8362;14,400&ndash;23,000</b><i>incl. VAT</i></div>
+        </div>
+      </div>
         <div id="status">Connecting to the decision store&hellip;</div>
         <div id="locked" class="card"></div>
         <div id="cards"></div>
@@ -222,14 +242,15 @@ const DECISIONS = [
 ];
 const LOCKED = [
  ["Ceiling", "2600 finished floor to finished ceiling \u2014 confirmed"],
- ["Layout", "no dividers anywhere: 18 | 796 | 36 | 1200 nook | 36 | 796 | 18"],
- ["Shelf band", "70mm on every shelf. 18mm plain at 796 sags 6.2mm with creep"],
- ["Centre shelf", "36mm deck + 34 nosing, full 1200 span"],
- ["Header", "36mm deck + 64 fascia = 100mm band. A 70 band gives 4.5mm"],
+ ["Layout", "no dividers anywhere: 19 | 793 | 38 | 1200 nook | 38 | 793 | 19"],
+ ["Shelf band", "70mm on every shelf. 19mm plain at 793 would sag 5.3mm with creep"],
+ ["Centre shelf", "38mm deck + 32 nosing, full 1200 span"],
+ ["Header", "38mm deck + 62 fascia = 100mm band. A 70 band gives 4.5mm"],
  ["Bench deck", "28mm over one mullion (two drawers). 22mm gives 2.63mm under 80kg"],
  ["Nook back", "horizontal shiplap, 9 boards, 6mm shadow gap, unbroken"],
  ["Electrical", "socket inside a bench drawer; LED behind the header fascia"],
  ["Construction", "MDF carcass, routed shaker fronts, sprayed. No edge banding"],
+ ["Panel thickness", "19mm throughout \u2014 18mm MDF is not stocked in Israel"],
  ["Still unknown", "the wall itself \u2014 nothing is site-measured yet"],
 ];
 const choice = Object.fromEntries(DECISIONS.map(d => [d.id, d.rec]));
