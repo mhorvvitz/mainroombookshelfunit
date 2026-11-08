@@ -35,7 +35,7 @@ class Sheet:
         s.line(x,y1,x,y2,DIM,.8)
         for y in (y1,y2): s.line(x-3.5,y,x+3.5,y,DIM,.8)
         s.o.append(f'<text x="{x-4.5:.1f}" y="{(y1+y2)/2:.1f}" font-size="{sz}" fill="{DIM}" text-anchor="middle" font-weight="600" font-family="\'DejaVu Sans Mono\',monospace" transform="rotate(-90 {x-4.5:.1f} {(y1+y2)/2:.1f})">{lab}</text>')
-    def title(s, sub, status="DRAFT — 13 decisions open · NOT site-measured"):
+    def title(s, sub, status="DRAFT — 7 decisions open · NOT site-measured"):
         s.line(40,H-56,W-40,H-56,INK,1.0)
         s.txt(40,H-38,"MAIN-ROOM NOOK UNIT",15,INK,"start","700")
         s.txt(40,H-22,sub,11,NOTE)
@@ -55,7 +55,7 @@ EX,EY=52,88
 def fx(x): return EX+x*MM*K
 def fy(y): return EY+(2600-y)*MM*K
 s1.txt(EX,EY-16,"FRONT ELEVATION",15,INK,"start","700")
-s1.txt(EX+168,EY-16,"1:13 — all dimensions keyed to the table on the right",10.5,NOTE)
+s1.txt(EX+168,EY-16,"1:12 — all dimensions keyed to the table on the right",10.5,NOTE)
 s1.rect(fx(-60),fy(2600),60*MM*K,2600*MM*K,GHOST,.5)
 s1.rect(fx(2900),fy(2600),60*MM*K,2600*MM*K,GHOST,.5)
 s1.line(fx(-90),fy(2600),fx(2990),fy(2600),INK,1.3)
@@ -65,11 +65,11 @@ for p in sorted(P,key=lambda q:q["z"]):
     f="#fcfbf9" if p["defn"] in FRONTS else FILL
     s1.rect(fx(p["x"]),fy(p["y"]+p["sy"]),p["sx"]*MM*K,p["sy"]*MM*K,f,.5)
 # balloons: vertical levels on the LEFT of the drawing, widths ACROSS the top
-for n,y in [(1,50),(2,240),(3,990),(4,1640),(5,1706),(8,2500)]:
+for n,y in [(1,50),(2,240),(3,998),(4,1648),(5,1700),(8,2500)]:
     s1.balloon(fx(-130),fy(y),n)
     s1.line(fx(-118),fy(y),fx(-8),fy(y),DIM,.5,"3 3")
 s1.balloon(fx(205),fy(890),6); s1.balloon(fx(1450),fy(2099),7)
-HPOS=[(9,9),(10,212),(11,416),(12,832),(13,1450)]
+HPOS=[(9,9),(10,416),(12,832),(13,1450)]
 for n,x in HPOS: s1.balloon(fx(x),fy(0)+16,n)
 s1.hdim(fy(0)+44,fx(0),fx(2900),"2900 OVERALL",11.5)
 # ---- key table
@@ -78,18 +78,18 @@ s1.txt(TX,TY-14,"DIMENSION KEY",13,INK,"start","700")
 ROWS=[("H","HEIGHTS — from finished floor",None,None),
  (1,"Plinth","0 → 100","recessed 60, cap moulding on top"),
  (2,"Bench zone","100 → 380","two drawers; deck is 28mm"),
- (3,"Nook clear","380 → 1600","1220 high × 1200 wide, no divider"),
- (4,"Header fascia","1600 → 1680","80 downstand — the L-beam"),
+ (3,"Nook clear","380 → 1616","1236 high × 1200 wide"),
+ (4,"Header fascia","1616 → 1680","64 drop; 100 band. L-beam + hides the LED"),
  (5,"Header deck","1680 → 1716","36mm, 2×18 laminated"),
  (6,"Counter","881 → 900","19mm; the line runs right across"),
- (7,"Centre shelf","2081 → 2117","36mm + 40 nosing, full 1200 span"),
+ (7,"Centre shelf","2081 → 2117","36mm deck + 34 nosing"),
  (8,"Carcass top","2500","crown to 2600, scribed"),
  ("W","WIDTHS — left to right",None,None),
  (9,"End panel","18","exposed return beside the door"),
- (10,"Shelf column","389 × 4","15 shelves, all 386–389"),
- (11,"Inner divider","18 × 2",""),
+ (10,"Side bay","796 × 2","no dividers; shelves run right across"),
  (12,"Nook pier","36 × 2","2×18 laminated, full height"),
  (13,"NOOK","1200","clear between piers"),
+ ("","Shelf band","70","every shelf, side and centre alike"),
  ("D","DEPTHS — from the wall face",None,None),
  ("","Upper shelves","320","books read properly at this depth"),
  ("","Base + door","430","412 carcass + 19 shaker front"),
@@ -159,9 +159,9 @@ s2.title("Sheet 2 — section + plan")
 
 # =========================================================== SHEET 3
 s3=Sheet("3 of 3")
-s3.txt(52,50,"ELECTRICAL — WHY THE SOCKET MOVES",15,INK,"start","700")
-s3.txt(52,70,"Your existing outlet is low and central, so it lands directly behind the bench drawers. A live box may not be buried behind fixed joinery with no access.",11,NOTE)
-s3.txt(52,86,"Instead of chasing three new boxes into 200mm concrete, the nook back is held 30mm off the wall. That gap is the chase. Everything wires inside it.",11,NOTE)
+s3.txt(52,50,"ELECTRICAL — SOCKET IN THE BENCH, LED BEHIND THE HEADER",15,INK,"start","700")
+s3.txt(52,70,"Your existing outlet is low and central — right where the bench is. Rather than fight that, it feeds a socket INSIDE the right-hand bench drawer: a charging drawer.",11,NOTE)
+s3.txt(52,86,"Sconces are gone. The only thing still going up the wall is the low-voltage LED run, so the 30mm service void behind the nook back now carries one cable.",11,NOTE)
 
 def panel(x,y,w,h,letter,ttl,scale):
     s3.rect(x,y,w,h,"#fff",.8,"#c9c5bd")
@@ -170,26 +170,26 @@ def panel(x,y,w,h,letter,ttl,scale):
 
 # ---------- A : nook back seen from the room, 1:12
 AX,AY,AW,AH=52,112,430,582
-panel(AX,AY,AW,AH,"A","NOOK BACK, seen from the room","1:12")
+panel(AX,AY,AW,AH,"A","NOOK BACK — only one device now","1:12")
 KA=1/12.0; ox,oy=AX+96,AY+72
 def ax_(x): return ox+(x-850)*MM*KA
-def ay_(y): return oy+(1680-y)*MM*KA
-s3.rect(ax_(850),ay_(1680),1200*MM*KA,1300*MM*KA,FILL,.9)
-for i in range(7):
-    s3.rect(ax_(850+i*(1200-70)/6),ay_(1680),70*MM*KA,1300*MM*KA,"#e1ddd4",.4)
+def ay_(y): return oy+(1616-y)*MM*KA
+s3.rect(ax_(850),ay_(1616),1200*MM*KA,1236*MM*KA,FILL,.9)
+for i in range(9):          # horizontal shiplap, 132 boards, 6mm shadow gap
+    s3.rect(ax_(850),ay_(380+(i+1)*132+i*6),1200*MM*KA,132*MM*KA,"#e1ddd4",.45)
 s3.rect(ax_(850),ay_(380),1200*MM*KA,7,"#d8cfc0",.8)
 s3.txt(ax_(1450),ay_(380)+19,"bench deck  +380",9.5,NOTE,"middle","600")
-s3.txt(ax_(1450),ay_(1680)-8,"header fascia u/s  +1600",9.5,NOTE,"middle","600")
+s3.txt(ax_(1450),ay_(1616)-26,"header fascia u/s  +1616",9.5,NOTE,"middle","600")
 def dev(x,y,w,h,lab,c):
     s3.rect(ax_(x),ay_(y+h),w*MM*KA,h*MM*KA,"#fff",1.4,c)
     s3.txt(ax_(x)+w*MM*KA/2,ay_(y+h)-6,lab,9,c,"middle","700")
-dev(1140,960,86,86,"SOCKET",GRN)
-dev(1060,1200,110,90,"SCONCE",BLUE); dev(1730,1200,110,90,"SCONCE",BLUE)
-s3.vdim(ax_(850)-20,ay_(1000),ay_(380),"1000",10)
-s3.vdim(ax_(850)-54,ay_(1250),ay_(380),"1250",10)
-s3.hdim(ay_(380)+48,ax_(1115),ax_(1785),"670 between sconce centres",9.5)
-s3.txt(AX+12,AY+AH-30,"Heights from finished floor. Final positions are the חשמלאי's call —",9.5,NOTE)
-s3.txt(AX+12,AY+AH-16,"cut the boxes in the back panel AFTER he marks them on site.",9.5,NOTE)
+s3.rect(ax_(850),ay_(1616),1200*MM*KA,9,"#fff",1.5,"#b8860b")
+s3.txt(ax_(1450),ay_(1616)-11,"LED STRIP — concealed behind the 64 header fascia",9,"#8a6016","middle","700")
+s3.txt(ax_(1450),ay_(1440),"washes down the shiplap",9,NOTE,"middle")
+s3.vdim(ax_(850)-20,ay_(1616),ay_(380),"1236 nook clear",10)
+s3.txt(AX+12,AY+AH-58,"NO boxes are cut into the nook back at all. The shiplap runs",9.5,NOTE)
+s3.txt(AX+12,AY+AH-44,"unbroken from the bench deck up to the fascia.",9.5,NOTE)
+s3.txt(AX+12,AY+AH-24,"That is the whole point of putting the socket in a drawer.",9.5,GRN,"start","700")
 
 # ---------- B : horizontal section through the back build-up, 1:1
 BX,BY,BW,BH=504,112,540,250
@@ -205,17 +205,17 @@ s3.txt(hz(15),(bt+bb)/2+4,"C",10,DIM,"middle","700")
 for z,lab,c in [(-25,"concrete",NOTE),(15,"30 VOID",DIM),(39,"18 back",NOTE),(54,"12 batten",NOTE)]:
     s3.txt(hz(z),bb+16,lab,9.5,c,"middle","700" if c==DIM else "600")
 s3.txt(hz(15),bb+30,"conduit runs here",9,DIM,"middle")
-s3.txt(BX+290,BY+70,"A 45-wide furring strip every ~300 holds the",10,NOTE)
-s3.txt(BX+290,BY+86,"back panel off the concrete. The gaps between",10,NOTE)
-s3.txt(BX+290,BY+102,"them are the chase.",10,NOTE)
+s3.txt(BX+290,BY+70,"Five 45-wide furring strips hold the back panel",10,NOTE)
+s3.txt(BX+290,BY+86,"off the concrete. The gaps between them are",10,NOTE)
+s3.txt(BX+290,BY+102,"the chase for ONE low-voltage cable.",10,NOTE)
 s3.txt(BX+290,BY+126,"Nothing is cut into the wall: no dust, no rebar,",10,NOTE)
 s3.txt(BX+290,BY+142,"no risk to the 4\" drain stack.",10,NOTE)
-s3.txt(BX+290,BY+170,"Cost of the whole change:",10,GRN,"start","700")
-s3.txt(BX+290,BY+186,"five strips of 30mm MDF.",10,GRN,"start","700")
+s3.txt(BX+290,BY+170,"Keep the void even though only one cable",10,GRN,"start","700")
+s3.txt(BX+290,BY+186,"uses it — it costs five strips of MDF.",10,GRN,"start","700")
 
 # ---------- C : vertical route, 1:12
 CX,CY,CW,CH=504,386,540,568
-panel(CX,CY,CW,CH,"C","VERTICAL ROUTE — existing box to the new outlets","1:14")
+panel(CX,CY,CW,CH,"C","VERTICAL ROUTE — existing box to drawer socket and LED","1:14")
 KC=1/14.0; cl=CX+92; cb=CY+CH-30
 def cy_(y): return cb-y*MM*KC
 s3.rect(cl-30,cy_(1750),30,1750*MM*KC,GHOST,.8)
@@ -225,25 +225,27 @@ s3.rect(cl,cy_(388),140,8,"#d8cfc0",.9)
 s3.rect(cl,cy_(366),140,(366-118)*MM*KC,"#fff",.9)
 s3.rect(cl-5,cy_(330),22,14,"#fff",1.5,"#8c3b2e")
 s3.line(cl+5,cy_(316),cl+5,cy_(1260),DIM,2.2,"5 3")
-for yy,lab,c in [(1000,"new socket",GRN),(1250,"sconce feed",BLUE)]:
-    s3.rect(cl+1,cy_(yy+30),16,11,"#fff",1.4,c)
-    s3.txt(cl+24,cy_(yy)+2,lab,9.5,c,"start","700")
-s3.txt(cl+152,cy_(392)+4,"bench deck — ONE Ø30 hole at the rear",9.5,NOTE,"start","600")
-s3.txt(cl+152,cy_(250)+4,"bench drawer — pull it out and the old",9.5,NOTE,"start","600")
-s3.txt(cl+152,cy_(250)+17,"box is in reach. That is the access.",9.5,NOTE,"start","600")
+s3.rect(cl+1,cy_(1646),16,11,"#fff",1.4,"#c08a1f")
+s3.txt(cl+24,cy_(1616)+2,"LED strip at 1616, behind the fascia",9.5,"#8a6016","start","700")
+s3.rect(cl+34,cy_(215),22,13,"#fff",1.5,GRN)
+s3.txt(cl+64,cy_(215)+11,"SOCKET inside the drawer",9.5,GRN,"start","700")
+s3.txt(cl+152,cy_(392)+4,"bench deck — ONE Ø20 hole at the rear",9.5,NOTE,"start","600")
+s3.txt(cl+200,cy_(250)+4,"bench drawer — pull it out and the old",9.5,NOTE,"start","600")
+s3.txt(cl+200,cy_(250)+17,"box is in reach. That is the access.",9.5,NOTE,"start","600")
+s3.txt(cl+200,cy_(250)+30,"The LED driver lives in it too.",9.5,"#8a6016","start","700")
 s3.txt(cl+24,cy_(330)+4,"EXISTING BOX — stays where it is,",9.5,"#8c3b2e","start","700")
 s3.txt(cl+24,cy_(330)+17,"live, as an accessible junction",9.5,"#8c3b2e","start","700")
-s3.txt(cl+152,cy_(1100)+4,"30 service void",9.5,DIM,"start","700")
+s3.txt(cl+152,cy_(1100)+4,"30 void — one LV cable only",9.5,DIM,"start","700")
 
 # ---------- notes column
 NX2,NY2=1076,132
 s3.txt(NX2,NY2,"WHAT THE ELECTRICIAN ACTUALLY DOES",12,INK,"start","700")
 s3.line(NX2,NY2+7,W-46,NY2+7,INK,.8)
-steps=[("1","Leaves the existing box exactly where it is, live, as a junction. It ends up behind the centre bench drawer, which pulls out — that satisfies the access requirement."),
- ("2","Drills one Ø30 hole through the rear of the bench deck, in line with the void."),
- ("3","Runs flexible conduit up inside the 30mm void to a new socket at 1000 and two sconce boxes at 1250."),
- ("4","Nothing is chased into the concrete. No core drilling, no rebar scanning, no risk to the 4\" drain stack in this wall."),
- ("5","Marks the three box positions on the back panel before it is sprayed. The נגר cuts them, not the electrician.")]
+steps=[("1","Leaves the existing box where it is, live. It ends up behind the right-hand bench drawer, which pulls out — that is the access."),
+ ("2","Takes a spur from it to a socket mounted INSIDE that drawer. Charging drawer: phones and the LED driver live in there, nothing on show."),
+ ("3","Runs ONE low-voltage cable from the driver, through a Ø20 hole at the rear of the bench deck, up inside the 30mm void to the header."),
+ ("4","Terminates at the LED strip behind the 64mm header fascia, washing down the shiplap. No sconces, no boxes in the nook back."),
+ ("5","Nothing is chased into the concrete. No core drilling, no rebar scanning, no risk to the 4\" drain stack in this wall.")]
 yy=NY2+28
 for n,t in steps:
     s3.circ(NX2+9,yy-4,9.5,"#fff",BLUE,1.2); s3.txt(NX2+9,yy-0.5,n,9.5,BLUE,"middle","700")
