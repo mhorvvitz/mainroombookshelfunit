@@ -36,9 +36,9 @@
    "trim": 10
   },
   {
-   "id": "mdf22",
-   "name": "MDF 22mm / MDF 22 — משטח ישיבה",
-   "thickness": 22,
+   "id": "mdf28",
+   "name": "MDF 28mm / MDF 28 — משטח ישיבה",
+   "thickness": 28,
    "sheet": [
     2800,
     2070
@@ -188,10 +188,10 @@
    "qty": 1,
    "length": 1200,
    "width": 482,
-   "material": "mdf22",
+   "material": "mdf28",
    "grain": "none",
    "banding": [],
-   "notes": "22mm over two mullions; do NOT substitute 18mm"
+   "notes": "28mm over ONE mullion (two drawers). 22mm gives 2.63mm under 80kg — do not substitute"
   },
   {
    "name": "קורת ראש / Header leaf",
@@ -244,6 +244,26 @@
    "notes": ""
   },
   {
+   "name": "חזית מדף / Shelf nosing",
+   "qty": 2,
+   "length": 1198,
+   "width": 40,
+   "material": "mdf18",
+   "grain": "none",
+   "banding": [],
+   "notes": "2 leaves laminated to 36mm; glue+screw to the shelf front edge. WITHOUT it the shelf sags 4mm"
+  },
+  {
+   "name": "מדף מרכזי רחב / Wide centre shelf",
+   "qty": 2,
+   "length": 1198,
+   "width": 294,
+   "material": "mdf18",
+   "grain": "none",
+   "banding": [],
+   "notes": "2 leaves laminated to 36mm; spans the full 1200, no divider"
+  },
+  {
    "name": "סוקל / Plinth",
    "qty": 2,
    "length": 850,
@@ -284,16 +304,6 @@
    "notes": "System 32 both rows"
   },
   {
-   "name": "מחיצה עליונה / Upper divider",
-   "qty": 2,
-   "length": 766,
-   "width": 310,
-   "material": "mdf18",
-   "grain": "none",
-   "banding": [],
-   "notes": ""
-  },
-  {
    "name": "גב ארון תחתון / Base back",
    "qty": 4,
    "length": 745,
@@ -302,6 +312,16 @@
    "grain": "none",
    "banding": [],
    "notes": "hidden behind doors — one face only"
+  },
+  {
+   "name": "חזית מגירת ספסל / Bench drawer front",
+   "qty": 2,
+   "length": 596,
+   "width": 228,
+   "material": "mdf19",
+   "grain": "none",
+   "banding": [],
+   "notes": ""
   },
   {
    "name": "דלת שייקר / Shaker door",
@@ -315,9 +335,9 @@
   },
   {
    "name": "מחיצת ספסל / Bench mullion",
-   "qty": 2,
+   "qty": 1,
    "length": 482,
-   "width": 240,
+   "width": 234,
    "material": "mdf18",
    "grain": "none",
    "banding": [],
@@ -325,9 +345,9 @@
   },
   {
    "name": "צד ארגז מגירה / Drawer box side",
-   "qty": 6,
+   "qty": 4,
    "length": 440,
-   "width": 210,
+   "width": 204,
    "material": "ply15",
    "grain": "none",
    "banding": [],
@@ -354,16 +374,6 @@
    "notes": ""
   },
   {
-   "name": "חזית מגירת ספסל / Bench drawer front",
-   "qty": 3,
-   "length": 396,
-   "width": 234,
-   "material": "mdf19",
-   "grain": "none",
-   "banding": [],
-   "notes": ""
-  },
-  {
    "name": "עליונית ארון עליון / Upper top",
    "qty": 4,
    "length": 389,
@@ -377,16 +387,6 @@
    "name": "מדף / Shelf",
    "qty": 12,
    "length": 387,
-   "width": 294,
-   "material": "mdf18",
-   "grain": "none",
-   "banding": [],
-   "notes": "adjustable on 5mm pins; 298 deep leaves a 22 front setback"
-  },
-  {
-   "name": "מדף / Shelf",
-   "qty": 3,
-   "length": 386,
    "width": 294,
    "material": "mdf18",
    "grain": "none",

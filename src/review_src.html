@@ -69,9 +69,12 @@ main{flex:1 1 auto;min-height:0;position:relative}
 /* ---- elevation ---- */
 #pelev{background:var(--surface);padding-block:18px 40px;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-#elevbox{background:#fff;border:1px solid var(--line);border-radius:4px;overflow-x:auto;
+.dwset{max-width:1500px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.dwcap{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);margin-top:14px}
+.elevbox{background:#fff;border:1px solid var(--line);border-radius:4px;overflow-x:auto;
   box-shadow:var(--shadow)}
-#elevbox svg{display:block;min-width:1100px;width:100%;height:auto}
+.elevbox svg{display:block;min-width:1250px;width:100%;height:auto}
 
 /* ---- decisions ---- */
 #pdec{padding-block:20px 60px;
@@ -113,11 +116,11 @@ main{flex:1 1 auto;min-height:0;position:relative}
     <div class="hrow">
       <h1>Main-room nook unit</h1>
       <span class="badge">Draft &mdash; cuts not locked</span>
-      <span class="sub">2900 &times; 2600 &middot; 104 parts &middot; MDF, sprayed</span>
+      <span class="sub">2900 &times; 2600 &middot; 99 parts &middot; MDF, sprayed</span>
     </div>
     <nav role="tablist">
       <button role="tab" id="t-3d" aria-selected="true">Build</button>
-      <button role="tab" id="t-elev" aria-selected="false">Elevation</button>
+      <button role="tab" id="t-elev" aria-selected="false">Drawings</button>
       <button role="tab" id="t-dec" aria-selected="false">Decisions</button>
     </nav>
   </header>
@@ -138,7 +141,14 @@ main{flex:1 1 auto;min-height:0;position:relative}
     </section>
 
     <section class="pane" id="pelev" hidden>
-      <div id="elevbox">/*__SVG__*/</div>
+      <div class="dwset">
+        <div class="dwcap">Sheet 1 — front elevation, keyed to the dimension table</div>
+        <div class="elevbox">/*__SVG1__*/</div>
+        <div class="dwcap">Sheet 2 — section A&ndash;A through the nook, and plan at +600</div>
+        <div class="elevbox">/*__SVG2__*/</div>
+        <div class="dwcap">Sheet 3 — electrical: the service void, and why the socket moves</div>
+        <div class="elevbox">/*__SVG3__*/</div>
+      </div>
     </section>
 
     <section class="pane" id="pdec" hidden>
@@ -174,10 +184,10 @@ const DECISIONS = [
  {g:"Finish", id:"backs", q:"Open-shelf back colour", rec:"same",
   why:"Same colour is the safe, correct answer for a monolithic piece. A darker back behind the books is a real designer's move — it makes spines pop and gives the shelves depth — but it commits you, and repainting a back panel later means dismantling shelves.",
   opts:[["same","Same as carcass","monolithic"],["contrast","Darker contrast back","books pop; harder to undo"]]},
- {g:"Hardware", id:"handles", q:"Handles", rec:"knobs",
-  why:"Shaker convention is knobs, and they suit the 383-wide doors. Bar pulls on the three 396 bench drawers would be more comfortable for kids yanking them open. Handleless push-to-open looks clean but fails badly on a drawer a child leans on.",
-  opts:[["knobs","Knobs throughout","shaker convention"],["mixed","Knobs on doors, bars on drawers","most practical"],
-        ["bars","Bar pulls throughout","more contemporary"],["none","Handleless","clean; poor with kids"]]},
+ {g:"Hardware", id:"handles", q:"Handles", rec:"bars",
+  why:"You asked for pulls, so bar pulls are drawn. Worth knowing what you are trading: shaker convention is knobs, and on 383-wide doors they look lighter. Bars win on the two 596 bench drawers — a child yanking a loaded drawer gets a better grip. Switch between them here and the 3D updates.",
+  opts:[["bars","Bar pulls throughout","as asked; best grip"],["mixed","Knobs on doors, bars on drawers","the practical hybrid"],
+        ["knobs","Knobs throughout","shaker convention, lighter"],["none","Handleless","clean; poor with kids"]]},
  {g:"Hardware", id:"baseint", q:"Behind the four base doors", rec:"drawers",
   why:"I will keep pushing on this. A 412-deep cupboard behind a door is a cave — you fill the front 200 and forget the back. Two drawers per bay costs roughly ₪1,200–1,600 more across the four bays and turns dead depth into storage you actually use. It is the best money in the project.",
   opts:[["drawers","Two drawers per bay","+₪1,200–1,600, 100% reachable"],
@@ -215,7 +225,7 @@ const LOCKED = [
  ["Layout", "symmetric: 18 | 389 | 18 | 389 | 36 | 1200 nook | 36 | 389 | 18 | 389 | 18"],
  ["Upper band", "one 7-bay rhythm at ~388 across the full width; 15 shelves, all 386–389"],
  ["Header", "36mm deck + 80mm fascia = L-beam. Flat 36mm sags 9.8mm with creep"],
- ["Bench deck", "22mm over two mullions. 18mm over one gives 4.8mm under 80kg"],
+ ["Bench deck", "28mm over one mullion (two drawers). 22mm gives 2.63mm under 80kg"],
  ["Construction", "MDF carcass, routed shaker fronts, sprayed. No edge banding anywhere"],
  ["Still unknown", "the wall itself — nothing is site-measured yet"],
 ];
@@ -246,8 +256,11 @@ function box(p, mat){
 }
 const gCarc=new THREE.Group(), gFront=new THREE.Group(), gCush=new THREE.Group(),
       gCtx=new THREE.Group(), gBat=new THREE.Group(), gShip=new THREE.Group(),
-      gElec=new THREE.Group(), gCount=new THREE.Group(), gBacks=new THREE.Group();
-scene.add(gCarc,gFront,gCush,gCtx,gBat,gShip,gElec,gCount,gBacks);
+      gElec=new THREE.Group(), gCount=new THREE.Group(), gBacks=new THREE.Group(),
+      gHand=new THREE.Group();
+scene.add(gCarc,gFront,gCush,gCtx,gBat,gShip,gElec,gCount,gBacks,gHand);
+const mHand = new THREE.MeshStandardMaterial({color:0x2e2c2a, roughness:.35, metalness:.55});
+const FRONTREC = [];   // every front, for placing handles on
 
 const FRONT = new Set(['BaseDoor','BaseDrawerFront','BenchDrawerFront']);
 const PLYP  = new Set(['BenchBoxSide','SkinnyBoxSide']);
@@ -265,6 +278,7 @@ for (const p of PARTS){
     gFront.add(box({x:p.x, y:p.y+R, z:p.z, sx:R, sy:p.sy-2*R, sz:t}, mPaint));
     gFront.add(box({x:p.x+p.sx-R, y:p.y+R, z:p.z, sx:R, sy:p.sy-2*R, sz:t}, mPaint));
     gFront.add(box({x:p.x+R, y:p.y+R, z:p.z, sx:p.sx-2*R, sy:p.sy-2*R, sz:t-REC}, mPaint));
+    FRONTREC.push({defn:p.defn, x:p.x, y:p.y, z:p.z+t, w:p.sx, h:p.sy});
     continue;
   }
   gCarc.add(box(p, PLYP.has(p.defn) ? mPly : mPaint));
@@ -351,6 +365,36 @@ function tog(id,g){ const b=document.getElementById(id);
     b.setAttribute('aria-pressed',String(on)); g.forEach(x=>x.visible=on); }; }
 tog('tCush',[gCush]); tog('tFront',[gFront]); tog('tElec',[gElec]); tog('tCtx',[gCtx]);
 
+function buildHandles(){
+  while (gHand.children.length) gHand.remove(gHand.children[0]);
+  const kind = choice.handles;                       // knobs | mixed | bars | none
+  if (kind === 'none') return;
+  // doors mirror in pairs, so handles meet at each pair's centre
+  const doors = FRONTREC.filter(f=>f.defn==='BaseDoor').sort((a,b)=>a.x-b.x);
+  const side = {}; doors.forEach((d,i)=>{ side[d.x] = (i % 2 === 0) ? 1 : -1; });
+  for (const f of FRONTREC){
+    const isDoor = f.defn === 'BaseDoor';
+    const bar = kind === 'bars' || (kind === 'mixed' && !isDoor);
+    let cx, cy;
+    if (isDoor){ cx = f.x + (side[f.x] > 0 ? f.w - 52 : 52); cy = f.y + f.h - 170; }
+    else { cx = f.x + f.w/2; cy = f.y + f.h/2; }
+    if (bar){
+      const L = isDoor ? 160 : 192, D = 14;
+      gHand.add(box({x:cx-(isDoor?D/2:L/2), y:cy-(isDoor?L/2:D/2), z:f.z+22,
+                     sx:isDoor?D:L, sy:isDoor?L:D, sz:D}, mHand));
+      const off = (isDoor?L:L) / 2 - 22;
+      for (const sgn of [-1,1]){
+        const px = isDoor ? cx - 8 : cx + sgn*off - 8;
+        const py = isDoor ? cy + sgn*off - 8 : cy - 8;
+        gHand.add(box({x:px, y:py, z:f.z, sx:16, sy:16, sz:24}, mHand));
+      }
+    } else {
+      gHand.add(box({x:cx-16, y:cy-16, z:f.z+14, sx:32, sy:32, sz:16}, mHand));
+      gHand.add(box({x:cx-6,  y:cy-6,  z:f.z,    sx:12, sy:12, sz:16}, mHand));
+    }
+  }
+}
+
 function applyChoices(){
   const hex = PAINTS[choice.paint] || PAINTS.warmwhite;
   mPaint.color.setHex(hex);
@@ -359,6 +403,7 @@ function applyChoices(){
   gShip.visible = choice.nookback === 'shiplap';
   gCount.children.forEach(c => c.material = choice.counter === 'oak' ? mOak : mCount);
   gCrown.visible = choice.crown !== 'flat';
+  buildHandles();
 }
 function fit(){ const w=vwrap.clientWidth,h=vwrap.clientHeight;
   renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); }

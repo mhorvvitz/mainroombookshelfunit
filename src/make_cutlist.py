@@ -10,14 +10,14 @@ MATERIALS = [
   {"id":"mdf18","name":"MDF 18mm / MDF 18 מ\"מ — גוף","thickness":18,"sheet":BIG,"kerf":4,"trim":10},
   {"id":"mdf19","name":"MDF 19mm / MDF 19 — חזיתות שייקר + משטח","thickness":19,"sheet":BIG,"kerf":4,"trim":10},
   {"id":"mdf30","name":"MDF 30mm / MDF 30 — סרגלי פילוס לחלל שירות","thickness":30,"sheet":BIG,"kerf":4,"trim":10},
-  {"id":"mdf22","name":"MDF 22mm / MDF 22 — משטח ישיבה","thickness":22,"sheet":BIG,"kerf":4,"trim":10},
+  {"id":"mdf28","name":"MDF 28mm / MDF 28 — משטח ישיבה","thickness":28,"sheet":BIG,"kerf":4,"trim":10},
   {"id":"mdf12","name":"MDF 12mm / MDF 12 — סרגלי גומחה","thickness":12,"sheet":SML,"kerf":3,"trim":10},
   {"id":"mdf10","name":"MDF 10mm / MDF 10 — גבים גלויים","thickness":10,"sheet":BIG,"kerf":3,"trim":10},
   {"id":"hb4",  "name":"Hardboard 4mm / מזונית 4 — גבים נסתרים","thickness":4,"sheet":SML,"kerf":3,"trim":10},
   {"id":"ply15","name":"Birch ply 15mm / דיקט בירץ' 15 — ארגזי מגירה","thickness":15,"sheet":SML,"kerf":3,"trim":10},
   {"id":"ply12","name":"Birch ply 12mm / דיקט בירץ' 12 — ארגזי מגירה דקה","thickness":12,"sheet":SML,"kerf":3,"trim":10},
 ]
-MATFOR = {("mdf",30):"mdf30",("mdf",18):"mdf18",("mdf",19):"mdf19",("mdf",22):"mdf22",("mdf",12):"mdf12",
+MATFOR = {("mdf",30):"mdf30",("mdf",18):"mdf18",("mdf",19):"mdf19",("mdf",28):"mdf28",("mdf",12):"mdf12",
           ("mdf",10):"mdf10",("mdf",20):"mdf19",("hardboard",4):"hb4",
           ("plywood_birch",15):"ply15",("plywood_birch",12):"ply12"}
 # the counter is 19mm MDF
@@ -35,14 +35,16 @@ HE = {
  "Header":"קורת ראש / Header leaf","HeaderFascia":"חזית הקורה / Header fascia",
  "UpperSide":"צד ארון עליון / Upper side","UpperTop":"עליונית ארון עליון / Upper top",
  "UpperBack":"גב ארון עליון / Upper back","UpperDivider":"מחיצה עליונה / Upper divider",
- "Shelf":"מדף / Shelf","PlinthBase":"סוקל / Plinth","PlinthBench":"סוקל ספסל / Bench plinth",
+ "Shelf":"מדף / Shelf","ShelfWide":"מדף מרכזי רחב / Wide centre shelf","ShelfNosing":"חזית מדף / Shelf nosing","PlinthBase":"סוקל / Plinth","PlinthBench":"סוקל ספסל / Bench plinth",
  "CrownFascia":"כרכוב / Crown fascia",
 }
 NOTE = {
  "Pier":"2 leaves laminated to 36mm per pier; full height 100-2500; carries the header",
  "Header":"2 leaves laminated to 36mm; glue+screw the fascia on to form the L-beam",
  "HeaderFascia":"2 leaves laminated to 36mm; 80 downstand — this is what stops the header sagging",
- "BenchPlatform":"22mm over two mullions; do NOT substitute 18mm",
+ "BenchPlatform":"28mm over ONE mullion (two drawers). 22mm gives 2.63mm under 80kg — do not substitute",
+ "ShelfWide":"2 leaves laminated to 36mm; spans the full 1200, no divider",
+ "ShelfNosing":"2 leaves laminated to 36mm; glue+screw to the shelf front edge. WITHOUT it the shelf sags 4mm",
  "UpperSide":"System 32: two rows of 5mm holes, front row 37 from the front edge",
  "Pier_":"",
  "Shelf":"adjustable on 5mm pins; 298 deep leaves a 22 front setback",

@@ -113,14 +113,14 @@ A("BenchBottom",   X_NOOK, Y_PLINTH, 0, NOOK, T, D_BENCH)
 # 25mm deck on TWO mullions. An 80kg adult on an 18mm deck over one mullion
 # deflects 4.8mm — a springy seat. 25mm over 388 spans gives 0.51mm.
 # The three drawer fronts at 388 also line up with the three upper centre bays.
-T_DECK = 22   # MDF stocks 22, not 25; recheck gives 0.76mm sag — PASS
-A("BenchPlatform", X_NOOK, Y_BENCH - T_DECK, 0, NOOK, T_DECK, D_BENCH, note="25mm seat deck; 90 cushion on top")
-bo0, bo1 = Y_PLINTH + T, Y_BENCH - T_DECK         # 118..355 = 237 clear
-BW = (NOOK - 2*T) / 3                              # 388.0 clear per drawer
-for i in (1, 2):
-    A("BenchMullion", X_NOOK + i*BW + (i-1)*T, bo0, 0, T, bo1 - bo0, D_BENCH)
-for i in range(3):
-    fw = (NOOK - 4*3) / 3
+T_DECK = 28   # TWO drawers = one mullion = 591 span. 22mm gives 2.63mm under
+              # an 80kg adult; 28mm gives 1.28mm. 28 is stocked, 25 is not.
+A("BenchPlatform", X_NOOK, Y_BENCH - T_DECK, 0, NOOK, T_DECK, D_BENCH, note="28mm seat deck; 90 cushion on top")
+bo0, bo1 = Y_PLINTH + T, Y_BENCH - T_DECK
+BW = (NOOK - T) / 2                                # 591.0 clear per drawer
+A("BenchMullion", X_NOOK + BW, bo0, 0, T, bo1 - bo0, D_BENCH)
+for i in range(2):
+    fw = (NOOK - 3*3) / 2
     A("BenchDrawerFront", X_NOOK + 3 + i*(fw + 3), bo0 + 3, D_BENCH, fw, (bo1 - bo0) - 6, T_FRONT, kind="door")
     bx = X_NOOK + i*(BW + T)
     for off in (0, BW - 26 - 15):
@@ -172,14 +172,15 @@ for (x0, x1) in BAYS:
 # nook centreline, and no shelf above the header spans more than 421.
 A("UpperTop", X_NOOK, Y_CARC_TOP - T, 0, NOOK, T, D_UPPER)
 A("UpperBack", X_NOOK, Y_HDR_T, 0, NOOK, Y_CARC_TOP - Y_HDR_T - T, 10, material="mdf", grain="none")
-CB = (NOOK - 2*T) / 3                                   # 421.33 clear each
-cx = X_NOOK
-for i in range(3):
-    if i:
-        A("UpperDivider", cx, Y_HDR_T, 10, T, Y_CARC_TOP - Y_HDR_T - T, D_UPPER - 10)
-        cx += T
-    A("Shelf", cx + 1, Y_SHELF2 - T, 10, CB - 2, T, D_UPPER - 26)
-    cx += CB
+# No dividers: the centre reads as one full-width opening top to bottom.
+# A plain 18mm shelf at 1200 sags 21mm (32mm with creep). 36mm laminated is
+# still 4.0mm. 36mm + a 40mm front nosing is an L-beam at 1.45mm — the same
+# trick as the header, one tier lighter, and the two bands line up.
+for k in (0, 1):
+    A("ShelfWide", X_NOOK + 1, Y_SHELF2 - 2*T + k*T, 10, NOOK - 2, T, D_UPPER - 26,
+      note=f"laminated leaf {k+1} of 2 -> 36mm")
+    A("ShelfNosing", X_NOOK + 1, Y_SHELF2 - 2*T - 40, D_UPPER - 26 + 10 - 2*T + k*T,
+      NOOK - 2, 40, T, note=f"40mm nosing, leaf {k+1} of 2; glue+screw to the shelf front")
 
 # ============ CROWN  Y 2500..2600 ===========================================
 # BUGFIX 3: a single 2900 fascia exceeds every sheet in the catalogue (max 2800).

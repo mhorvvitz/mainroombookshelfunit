@@ -15,13 +15,13 @@ Settle both and the whole package regenerates from the same source in minutes.
 
 | Path | What it is |
 |---|---|
-| `drawings/Nook_unit_shop_drawing.pdf` | A3 sheet — front elevation 1:15, section A–A, plan 1:20, critical notes, title block |
-| `drawings/Nook_unit_cutlist.xlsx` | 31 line items / 104 pieces, sheet take-off, hardware schedule, site-measurement checklist |
+| `drawings/Nook_unit_drawings.pdf` | Three A3 sheets — (1) front elevation keyed to a dimension table, (2) section + plan, (3) electrical |
+| `drawings/Nook_unit_cutlist.xlsx` | 31 line items / 99 pieces, sheet take-off, hardware schedule, site-measurement checklist |
 | `drawings/assembly_plan.md` | Build order + per-part drilling coordinates (cam-and-dowel, System 32) |
 | `drawings/cutlist.md` | Same cut list as plain text, for pasting into a quote request |
 | `src/spec_build.py` | **The source.** Change a number here, never in an output |
 | `src/spec.json` | The positioned-part spec that every output derives from |
-| `src/sheet.py`, `src/make_cutlist.py`, `src/make_xlsx.py` | The emitters |
+| `src/sheets.py`, `src/make_cutlist.py`, `src/make_xlsx.py` | The emitters |
 | `src/review_src.html` | The review artifact (3D + elevation + decisions) |
 
 Everything downstream derives from `spec.json`, so the drawing, the cut list and
@@ -29,15 +29,15 @@ the assembly plan cannot disagree. Never hand-edit an output to fix a number.
 
 ```
 python3 src/spec_build.py && python3 src/make_cutlist.py \
-  && python3 src/sheet.py && python3 src/make_xlsx.py
+  && python3 src/sheets.py && python3 src/make_xlsx.py
 ```
 
 ## The design in one paragraph
 
 A 2900 × 2600 sprayed-MDF built-in on the 200mm concrete external wall, with a
 reading nook recessed into the centre. Symmetrical about the centreline: four
-389 shelf columns, a 1200 nook, and above the header one continuous seven-bay
-rhythm at ~388 running the full width. Three depth planes — 320 upper shelves,
+389 shelf columns and a 1200 nook, the nook running full width top to bottom
+with no divider above the header. Three depth planes — 320 upper shelves,
 430 base cabinets with routed shaker doors, 500 bench projecting 70 proud. A
 counter at 900 ties the base run together. Plinth at 100, crown from 2500 to the
 ceiling, both scribed. Behind the left 600 the wall ends and a closet sits
@@ -56,14 +56,20 @@ laminated deck carrying three bays of books deflects 6.5mm immediately and
 moment of area from 1.24×10⁶ to 1.05×10⁷ mm⁴ and brings it to 1.2mm. **Do not
 omit the fascia. Do not substitute a single 18mm deck.**
 
-**2. The bench deck is 22mm over two mullions.** 18mm over one mullion gives
-4.8mm under an 80kg adult — a seat that visibly flexes. 22mm over two mullions
-gives 0.51mm. The three resulting drawer fronts at 388 also line up with the
-three upper centre bays.
+**2. The centre shelf is 36mm with a 40mm nosing.** With the dividers removed
+it spans the full 1200. Plain 18mm there sags 21mm, going to 32mm with creep —
+span punishes you to the fourth power. 36mm laminated alone is still 4.0mm. A
+30×5 steel bar only reaches 5.0mm. 36mm plus a 40mm front nosing is an L-beam
+at 1.45mm, and the band lines up under the header's 80mm fascia.
 
-**3. Shelf bays are 386–389 everywhere.** Not an aesthetic accident — it keeps
-every shelf at 0.23mm sag under a full book load with plain 18mm MDF, with no
-nosing, no steel and no thicker stock anywhere in the unit.
+**3. The bench deck is 28mm over one mullion.** Two drawers means one mullion
+and a 591 span. 18mm gives 4.8mm under an 80kg adult and 22mm gives 2.63mm —
+both are seats you can feel move. 28mm gives 1.28mm. 25mm would do it too but
+is not a stocked MDF thickness.
+
+**3b. Side shelf bays are 386–389.** That keeps every one of the twelve side
+shelves at 0.23mm under a full book load with plain 18mm MDF — no nosing, no
+steel, no thicker stock.
 
 **4. The nook back is furred 30mm off the concrete.** There is an existing
 outlet low and central, directly behind the bench drawers. A live box may not be
@@ -119,7 +125,7 @@ not exist yet.
 
 | Claim | Confidence |
 |---|---|
-| Geometry is internally consistent; 104 parts, zero collisions | **high** — `check_overlaps()` clean, every part validated against real sheet stock |
+| Geometry is internally consistent; 99 parts, zero collisions | **high** — `check_overlaps()` clean, every part validated against real sheet stock |
 | Deflection calculations | **high** on the method (standard beam theory), **moderate** on MDF E=3000 N/mm² — it varies by board; the margins absorb it |
 | Material thicknesses exist in Israeli stock | **moderate** — from seeded supplier data, confirm with your yard |
 | Runner and hinge clearances | **moderate** — typical values, confirm against the product datasheet before machining |
