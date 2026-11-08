@@ -15,8 +15,19 @@
   },
   {
    "id": "mdf19",
-   "name": "MDF 19mm / MDF 19 — חזיתות שייקר חרוטות",
+   "name": "MDF 19mm / MDF 19 — חזיתות שייקר + משטח",
    "thickness": 19,
+   "sheet": [
+    2800,
+    2070
+   ],
+   "kerf": 4,
+   "trim": 10
+  },
+  {
+   "id": "mdf30",
+   "name": "MDF 30mm / MDF 30 — סרגלי פילוס לחלל שירות",
+   "thickness": 30,
    "sheet": [
     2800,
     2070
@@ -140,7 +151,7 @@
    "material": "mdf18",
    "grain": "none",
    "banding": [],
-   "notes": ""
+   "notes": "cut the socket box and 2 sconce boxes on site AFTER the electrician sets positions"
   },
   {
    "name": "סרגל גומחה / Nook batten",
@@ -151,6 +162,16 @@
    "grain": "none",
    "banding": [],
    "notes": "7 off at 189 centres; glue to the nook back before spraying"
+  },
+  {
+   "name": "סרגל פילוס / Furring strip",
+   "qty": 5,
+   "length": 1300,
+   "width": 45,
+   "material": "mdf30",
+   "grain": "none",
+   "banding": [],
+   "notes": "5 off; creates the 30mm SERVICE VOID — socket + sconce wiring runs here, no chasing the concrete"
   },
   {
    "name": "תחתית ספסל / Bench bottom",

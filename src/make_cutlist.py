@@ -9,6 +9,7 @@ BIG = [2800, 2070]; SML = [2440, 1220]
 MATERIALS = [
   {"id":"mdf18","name":"MDF 18mm / MDF 18 מ\"מ — גוף","thickness":18,"sheet":BIG,"kerf":4,"trim":10},
   {"id":"mdf19","name":"MDF 19mm / MDF 19 — חזיתות שייקר + משטח","thickness":19,"sheet":BIG,"kerf":4,"trim":10},
+  {"id":"mdf30","name":"MDF 30mm / MDF 30 — סרגלי פילוס לחלל שירות","thickness":30,"sheet":BIG,"kerf":4,"trim":10},
   {"id":"mdf22","name":"MDF 22mm / MDF 22 — משטח ישיבה","thickness":22,"sheet":BIG,"kerf":4,"trim":10},
   {"id":"mdf12","name":"MDF 12mm / MDF 12 — סרגלי גומחה","thickness":12,"sheet":SML,"kerf":3,"trim":10},
   {"id":"mdf10","name":"MDF 10mm / MDF 10 — גבים גלויים","thickness":10,"sheet":BIG,"kerf":3,"trim":10},
@@ -16,7 +17,7 @@ MATERIALS = [
   {"id":"ply15","name":"Birch ply 15mm / דיקט בירץ' 15 — ארגזי מגירה","thickness":15,"sheet":SML,"kerf":3,"trim":10},
   {"id":"ply12","name":"Birch ply 12mm / דיקט בירץ' 12 — ארגזי מגירה דקה","thickness":12,"sheet":SML,"kerf":3,"trim":10},
 ]
-MATFOR = {("mdf",18):"mdf18",("mdf",19):"mdf19",("mdf",22):"mdf22",("mdf",12):"mdf12",
+MATFOR = {("mdf",30):"mdf30",("mdf",18):"mdf18",("mdf",19):"mdf19",("mdf",22):"mdf22",("mdf",12):"mdf12",
           ("mdf",10):"mdf10",("mdf",20):"mdf19",("hardboard",4):"hb4",
           ("plywood_birch",15):"ply15",("plywood_birch",12):"ply12"}
 # the counter is 19mm MDF
@@ -30,7 +31,7 @@ HE = {
  "BenchBottom":"תחתית ספסל / Bench bottom","BenchPlatform":"משטח ישיבה / Bench deck",
  "BenchMullion":"מחיצת ספסל / Bench mullion","BenchDrawerFront":"חזית מגירת ספסל / Bench drawer front",
  "BenchBoxSide":"צד ארגז מגירה / Drawer box side","SkinnyBoxSide":"צד ארגז מגירה דקה / Skinny box side",
- "NookBack":"גב הגומחה / Nook back","NookBatten":"סרגל גומחה / Nook batten",
+ "NookBack":"גב הגומחה / Nook back","NookBatten":"סרגל גומחה / Nook batten","NookFurring":"סרגל פילוס / Furring strip",
  "Header":"קורת ראש / Header leaf","HeaderFascia":"חזית הקורה / Header fascia",
  "UpperSide":"צד ארון עליון / Upper side","UpperTop":"עליונית ארון עליון / Upper top",
  "UpperBack":"גב ארון עליון / Upper back","UpperDivider":"מחיצה עליונה / Upper divider",
@@ -51,6 +52,8 @@ NOTE = {
  "NookBatten":"7 off at 189 centres; glue to the nook back before spraying",
  "BaseDoor":"routed shaker, 19mm; 2 concealed soft-close hinges per leaf",
  "BaseSide":"System 32 both rows",
+ "NookFurring":"5 off; creates the 30mm SERVICE VOID — socket + sconce wiring runs here, no chasing the concrete",
+ "NookBack":"cut the socket box and 2 sconce boxes on site AFTER the electrician sets positions",
 }
 
 spec = json.load(open("spec.json"))

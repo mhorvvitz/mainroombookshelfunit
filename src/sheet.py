@@ -154,8 +154,12 @@ notes = [
  "8.  NO EDGE BANDING. All MDF edges are sealed, filled and sprayed.",
  "9.  SCRIBE 15mm at the right-hand end against the wall. Left end is an exposed",
  "     finished return beside the door.",
- "10. Electrical: two sconces on the nook back and one socket — conduit MUST be run",
- "     before plaster. Positions to be set with the חשמלאי on site.",
+ "10. EXISTING OUTLET, low and central, lands behind the bench drawers. A live box",
+ "     may NOT be buried behind fixed joinery with no access. The nook back is",
+ "     therefore furred 30mm off the concrete to form a SERVICE VOID: the relocated",
+ "     socket and both sconces wire through it with NO chasing of the external wall,",
+ "     and the existing box stays reachable by pulling the centre bench drawer out.",
+ "     Cut the boxes on site, after the חשמלאי sets the positions.",
 ]
 for i,n in enumerate(notes):
     txt(NX, NY + 2 + i*8.4, n, 5.6, NOTE if not n[:3].strip().rstrip('.').isdigit() else NOTE)
@@ -166,7 +170,7 @@ line(TBX, TBY+17, TBX+TBW, TBY+17, INK, .7)
 line(TBX+200, TBY, TBX+200, TBY+TBH, INK, .7)
 txt(TBX+6, TBY+12, "MAIN-ROOM NOOK UNIT — יחידת ספרים עם גומחת ישיבה", 8, INK, "start", "700")
 rows = [("UNITS","mm"),("SCALE","1:15 elev+sect, 1:20 plan @ A3"),("MATERIAL","MDF, sprayed — routed shaker fronts"),
-        ("STATUS","PROVISIONAL — not site-measured"),("PARTS","99 pieces / 30 line items")]
+        ("STATUS","DRAFT — 13 decisions open, not site-measured"),("PARTS","104 pieces / 31 line items")]
 for i,(a,b) in enumerate(rows):
     txt(TBX+6, TBY+29+i*8, a, 5.2, NOTE, "start", "600")
     txt(TBX+58, TBY+29+i*8, b, 5.2, INK)

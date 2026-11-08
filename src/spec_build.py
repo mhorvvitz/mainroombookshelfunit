@@ -127,13 +127,26 @@ for i in range(3):
         A("BenchBoxSide", bx + 13 + off, bo0 + 8, 30, 15, (bo1 - bo0) - 30, 440,
           material="plywood_birch", grain="none")
 
-# ============ NOOK BACK — board & batten panel ==============================
-A("NookBack", X_NOOK, Y_BENCH, 0, NOOK, Y_HDR_U - Y_BENCH, T, note="18 MDF ground; clear height to fascia = 1220")
+# ============ NOOK BACK — board & batten on a 30mm SERVICE VOID =============
+# There is an existing outlet low down and central: it lands behind the bench
+# drawers. Burying a live box behind fixed joinery with no access is not on.
+# Furring the nook back 30mm off the concrete creates a service void, so the
+# socket and both sconces are wired WITHOUT chasing the external wall — and the
+# existing box stays reachable by pulling the centre bench drawer out.
+VOID = 30
+NB_H = Y_HDR_U - Y_BENCH
+for i in range(5):
+    fx_ = X_NOOK + 6 + i * (NOOK - 57) / 4
+    A("NookFurring", fx_, Y_BENCH, 0, 45, NB_H, VOID,
+      note="vertical furring; leaves a 30mm service void against the concrete")
+A("NookBack", X_NOOK, Y_BENCH, VOID, NOOK, NB_H, T,
+  note="18 MDF ground on the furring; cut the socket + 2 sconce boxes on site")
 n_bat = 7
 bat_w = 70
 pitch = (NOOK - bat_w) / (n_bat - 1)
 for i in range(n_bat):
-    A("NookBatten", X_NOOK + i*pitch, Y_BENCH, T, bat_w, Y_HDR_U - Y_BENCH, 12, note="12mm applied batten")
+    A("NookBatten", X_NOOK + i*pitch, Y_BENCH, VOID + T, bat_w, NB_H, 12,
+      note="12mm applied face batten at 189 centres")
 
 # ============ HEADER over the nook — 36mm laminated =========================
 A("Header", X_NOOK, Y_HDR_U, 0, NOOK, T, D_UPPER, note="laminated leaf 1 of 2")
